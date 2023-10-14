@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import Head from 'next/head';
 
 import { Box } from '@mui/material';
@@ -9,7 +9,7 @@ interface Props {
     title?: string;
 }
 
-export const Layout:FC<Props> = ({ title = 'SES', children }) => {
+export const Layout:FC<PropsWithChildren<Props>> = ({ title = 'SES', children }) => {
   return (
       <Box sx={{ flexFlow: 1 }}>
           <Head>

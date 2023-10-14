@@ -4,7 +4,7 @@ import { Layout } from '../components/layouts';
 
 const HomePage: NextPage= () => { 
   return (
-    <Layout>
+    <Layout title='Home - SES'>
       <Typography variant='h1' color='primary'>SOMOS LOS PUTOS SAD EYES</Typography>
     </Layout>
   )

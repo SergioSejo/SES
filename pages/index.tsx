@@ -1,11 +1,13 @@
 import { Typography } from '@mui/material';
 import type { NextPage } from 'next';
 import { Layout } from '../components/layouts';
+import { Season } from '@/components/ui';
+import { Statistics } from '@/components/ui/Statistics';
 
 const HomePage: NextPage= () => { 
   return (
-    <Layout title='Home - SES'>
-      <Typography variant='h1' color='primary'>SOMOS LOS PUTOS SAD EYES</Typography>
+    <Layout title='SES'>
+      <Statistics></Statistics>
     </Layout>
   )
 }

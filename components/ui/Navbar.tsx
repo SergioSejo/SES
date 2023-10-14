@@ -20,7 +20,7 @@ export const Navbar = () => {
                   <MenuOutlinedIcon />
               </IconButton>
 
-              <Typography variant='h6'>Sad Eyes Statistics</Typography>
+              <Typography variant='h6'>Estadísticas - Sad Eyes</Typography>
           </Toolbar>
       </AppBar>
   )

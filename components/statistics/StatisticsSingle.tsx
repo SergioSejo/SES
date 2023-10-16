@@ -37,29 +37,15 @@ function createData(
   return { name, goals, assists, cards };
 }
 
-function createDataTotal(
-    goalsTotal: number,
-    assistsTotal: number,
-    cardsTotal: number,
-    pichichi: string,
-    assistant: string,
-    dirty: string
-  ) {
-    return { goalsTotal, assistsTotal, cardsTotal, pichichi, assistant, dirty };
-  }
-
-  const rows = [
-    createData('Sergio Jiménez', 9, 2, 0),
-    createData('Javier Palomo', 17, 7, 2),
-    createData('Enrique Sánchez', 13, 13, 0),
-    createData('Adrián Díaz', 7, 6, 1),
-  ];
+const rows = [
+  createData('Sergio Jiménez', 9, 2, 0),
+  createData('Javier Palomo', 17, 7, 2),
+  createData('Enrique Sánchez', 13, 13, 0),
+  createData('Adrián Díaz', 7, 6, 1),
+];
   
-  const rowsTotal = [
-    createDataTotal(95, 68, 7,'Javier Palomo', 'Enrique Sánchez', 'Javier Palomo / Héctor'),
-  ];
 
-export const Statistics = () => {
+export const StatisticsSingle = () => {  
     return (
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }}>
@@ -80,33 +66,6 @@ export const Statistics = () => {
                     <StyledTableCell align="right">{row.goals}</StyledTableCell>
                     <StyledTableCell align="right">{row.assists}</StyledTableCell>
                     <StyledTableCell align="right">{row.cards}</StyledTableCell>
-                </StyledTableRow>
-              ))}
-            </TableBody>
-          </Table>
-          <hr></hr>
-          <hr></hr>
-          <hr></hr>
-          <Table sx={{ minWidth: 650 }}>
-            <TableHead>
-              <TableRow>
-                <StyledTableCell align="right">Goles totales</StyledTableCell>
-                <StyledTableCell align="right">Asistencias totales</StyledTableCell>
-                <StyledTableCell align="right">Tarjetas totales</StyledTableCell>
-                <StyledTableCell align="right">Pichichi</StyledTableCell>
-                <StyledTableCell align="right">Asistente</StyledTableCell>
-                <StyledTableCell align="right">Sucio</StyledTableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rowsTotal.map((rowTotal, index) => (
-                <StyledTableRow key={index}>
-                    <StyledTableCell align="right">{rowTotal.goalsTotal}</StyledTableCell>
-                    <StyledTableCell align="right">{rowTotal.assistsTotal}</StyledTableCell>
-                    <StyledTableCell align="right">{rowTotal.cardsTotal}</StyledTableCell>
-                    <StyledTableCell align="right">{rowTotal.pichichi}</StyledTableCell>
-                    <StyledTableCell align="right">{rowTotal.assistant}</StyledTableCell>
-                    <StyledTableCell align="right">{rowTotal.dirty}</StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>

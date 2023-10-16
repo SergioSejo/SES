@@ -1,8 +1,0 @@
-.seasonContents{
-    display:contents; 
-    position: relative;
-    text-align: center;
-}
-.seasonContents > div{
-    margin-top:5px;
-}

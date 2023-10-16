@@ -1,3 +1,3 @@
 export * from './Navbar';
 export * from './Sidebar';
-export * from './Season';
+export * from '../statistics/Statistics';

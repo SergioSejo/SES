@@ -1,5 +1,6 @@
 import { useContext } from 'react';
-import { Box, Divider, Drawer, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
+import { useRouter } from 'next/router';
+import { Box, Drawer, List, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material';
 
 
 import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
@@ -9,13 +10,31 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 import { UIContext } from '../../context/ui';
 
-const menuItems: string[] = ['Temporadas','Estadísticas','Ajustes','Salir']
+const menuItems: string[] = ['Partidos','Estadísticas','Ajustes','Salir']
 
 
 export const Sidebar = () => {
 
     const { sidemenuOpen, closeSideMenu  } = useContext( UIContext );
+    const router = useRouter();
 
+    const onClick = (event: React.MouseEvent<HTMLElement>) => {
+        const button = event.target as HTMLInputElement;
+        let buttonText = button.innerText;
+        let destiny = '';
+        switch (buttonText) {
+            case 'Partidos':
+                destiny = '/matches';
+                break;
+            case 'Estadísticas':
+                destiny = '/statistics';
+                break;        
+            default:
+                break;
+        }
+        if(destiny != '') router.push(`${ destiny }`);
+        
+    }
 
     return (
         <Drawer
@@ -32,12 +51,12 @@ export const Sidebar = () => {
                 <List>
                     {
                         menuItems.map( (text, index) => (
-                            <ListItem button key={ text }>
+                            <ListItemButton key={ text } onClick={ onClick }>
                                 <ListItemIcon>
                                     { index == 0 ? <SportsSoccerIcon />: index == 1 ? <AnalyticsIcon />: index == 2 ? <SettingsIcon /> : <ExitToAppIcon />  }
                                 </ListItemIcon>
                                 <ListItemText primary={ text } />
-                            </ListItem>
+                            </ListItemButton>
                         ))
                     }
                 </List>

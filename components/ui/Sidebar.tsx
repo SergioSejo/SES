@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { useRouter } from 'next/router';
 import { Box, Drawer, List, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material';
 
-
+import HomeIcon from '@mui/icons-material/Home';
 import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
 import AnalyticsIcon from '@mui/icons-material/Analytics';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -10,7 +10,7 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 import { UIContext } from '../../context/ui';
 
-const menuItems: string[] = ['Partidos','Estadísticas','Ajustes','Salir']
+const menuItems: string[] = ['Inicio','Partidos','Estadísticas','Ajustes','Salir']
 
 
 export const Sidebar = () => {
@@ -23,6 +23,9 @@ export const Sidebar = () => {
         let buttonText = button.innerText;
         let destiny = '';
         switch (buttonText) {
+            case 'Inicio':
+                destiny = '/';
+                break;
             case 'Partidos':
                 destiny = '/matches';
                 break;
@@ -53,7 +56,7 @@ export const Sidebar = () => {
                         menuItems.map( (text, index) => (
                             <ListItemButton key={ text } onClick={ onClick }>
                                 <ListItemIcon>
-                                    { index == 0 ? <SportsSoccerIcon />: index == 1 ? <AnalyticsIcon />: index == 2 ? <SettingsIcon /> : <ExitToAppIcon />  }
+                                    { index == 0 ? <HomeIcon /> : index == 1 ? <SportsSoccerIcon />: index == 2 ? <AnalyticsIcon />: index == 3 ? <SettingsIcon /> : <ExitToAppIcon />  }
                                 </ListItemIcon>
                                 <ListItemText primary={ text } />
                             </ListItemButton>

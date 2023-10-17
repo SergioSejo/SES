@@ -1,12 +1,11 @@
-import { Typography } from '@mui/material';
 import type { NextPage } from 'next';
 import { Layout } from '../components/layouts';
-import { Statistics } from '@/components/statistics/Statistics';
+import { Home } from '@/components/ui/Home';
 
 const HomePage: NextPage= () => { 
   return (
     <Layout title='SES'>
-      <Statistics></Statistics>
+      <Home></Home>
     </Layout>
   )
 }

@@ -8,7 +8,7 @@ export const statisticsPage:FC = () => {
   return (
     <>
       <Layout title='Estadísticas'>
-        <Seasons></Seasons>
+        <Seasons title='Estadísticas'></Seasons>
         <StatisticsSingle></StatisticsSingle>
         <StatisticsTotal></StatisticsTotal>
       </Layout>

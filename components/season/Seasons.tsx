@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { Box, Typography } from '@mui/material';
 
-export const Seasons = () => {
+interface Props {
+    title?: string;
+}
+
+export const Seasons:FC<Props> = ({ title }) => {
 
     const handleChange = (event: SelectChangeEvent) => {
         console.log("HOLA MUNDO");
@@ -12,7 +16,7 @@ export const Seasons = () => {
         <Box>
             <Box sx={{display:'flex', justifyContent: 'center'}}>
             <Typography variant="h2">
-                Estadísticas de la
+                { title } de la
             </Typography>
                 <Select
                     value={"2"}

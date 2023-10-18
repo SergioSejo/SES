@@ -7,7 +7,7 @@ export const matchesPage:FC = () => {
   return (
     <>
       <Layout title='Partidos'>
-        <Seasons></Seasons>
+        <Seasons title='Partidos'></Seasons>
         <MatchGrid></MatchGrid>
       </Layout>
     </>

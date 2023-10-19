@@ -1,36 +1,23 @@
 import React from 'react';
-import { styled } from '@mui/material/styles';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  }));
+import { MatchCard } from './MatchCard';
+import { Match } from './Match';
+import { Seasons } from '../season/Seasons';
 
 export const MatchGrid = () => {
+  const limit:Array<number> = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18];
   return (
     <>
-        <Box sx={{ width: '100%' }}>
-            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                <Grid item xs={6}>
-                <Item>1</Item>
-                </Grid>
-                <Grid item xs={6}>
-                <Item>2</Item>
-                </Grid>
-                <Grid item xs={6}>
-                <Item>3</Item>
-                </Grid>
-                <Grid item xs={6}>
-                <Item>4</Item>
-                </Grid>
-            </Grid>
-        </Box>
+      <Seasons title='Partidos'></Seasons>
+      <Box sx={{ width: '100%', textAlign:'center' }}>
+        {
+          /*limit.map((row, index) => (
+            <MatchCard key={index}></MatchCard>
+          ))*/
+        }
+        <Match></Match>
+        
+      </Box>
     </>
   )
 }

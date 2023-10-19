@@ -7,6 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Seasons } from '../season/Seasons';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -47,6 +48,8 @@ const rows = [
 
 export const StatisticsSingle = () => {  
     return (
+      <>
+        <Seasons title='Estadísticas'></Seasons>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }}>
             <TableHead>
@@ -71,5 +74,6 @@ export const StatisticsSingle = () => {
             </TableBody>
           </Table>
         </TableContainer>
+      </>
       );
 }

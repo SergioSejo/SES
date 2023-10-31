@@ -1,19 +1,26 @@
-import React from 'react';
+import { FC } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import { Match } from '@/interfaces';
+import { useRouter } from 'next/router';
 
-export const MatchCard = () => {
+export const MatchCard:FC<Match> = ({match}) => {
+  const router = useRouter();
+  const onClick = () => {
+    router.push(`/matches/${match.code}`);
+  }
+
   return (
     <Card sx={{ minHeight: 200, maxWidth: 350, display: 'inline-block', margin: '10px' }}>
-        <CardActionArea sx={{ minHeight: 200}}>
+        <CardActionArea sx={{ minHeight: 200}} onClick={onClick}>
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                Artilleros VS Sad Eyes
+                {match.team1} VS {match.team2}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                02/10/2016
+                {match.date}
                 </Typography>
             </CardContent>
         </CardActionArea>

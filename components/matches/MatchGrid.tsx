@@ -1,21 +1,23 @@
-import React from 'react';
+import { FC } from 'react';
 import Box from '@mui/material/Box';
 import { MatchCard } from './MatchCard';
 import { Seasons } from '../season/Seasons';
+import { Match } from '@/interfaces';
 
-export const MatchGrid = () => {
-  const limit:Array<number> = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18];
+interface Props {
+  matches: Match[];
+}
+
+export const MatchGrid:FC<Props> = ({matches}) => {
   return (
     <>
       <Seasons title='Partidos'></Seasons>
       <Box sx={{ width: '100%', textAlign:'center' }}>
         {
-          limit.map((row, index) => (
-            <MatchCard key={index}></MatchCard>
+          matches.map((match, index) => (
+            <MatchCard key={index} match={match}></MatchCard>
           ))
         }
-        
-        
       </Box>
     </>
   )

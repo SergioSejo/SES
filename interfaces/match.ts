@@ -1,5 +1,6 @@
 export interface Match {
     _id: string;
+    code: string;
     team1: string;
     team2: string;
     date: string;

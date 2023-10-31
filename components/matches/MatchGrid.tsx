@@ -1,7 +1,6 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import { MatchCard } from './MatchCard';
-import { Match } from './Match';
 import { Seasons } from '../season/Seasons';
 
 export const MatchGrid = () => {
@@ -11,11 +10,11 @@ export const MatchGrid = () => {
       <Seasons title='Partidos'></Seasons>
       <Box sx={{ width: '100%', textAlign:'center' }}>
         {
-          /*limit.map((row, index) => (
+          limit.map((row, index) => (
             <MatchCard key={index}></MatchCard>
-          ))*/
+          ))
         }
-        <Match></Match>
+        
         
       </Box>
     </>

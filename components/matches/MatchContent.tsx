@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, FC } from 'react';
 import { useRouter } from 'next/router';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -10,6 +10,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import TextField from '@mui/material/TextField';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Match } from '@/interfaces';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -37,7 +38,7 @@ function CustomTabPanel(props: TabPanelProps) {
   );
 }
 
-export const Match = () => {
+export const MatchContent:FC<Match> = ({match}) => {
 
   const [value, setValue] = useState(0);
   const router = useRouter();
@@ -61,7 +62,7 @@ export const Match = () => {
           Temporada 1 - Partido 1
           </Typography>
           <Typography color='#a5d6a7' gutterBottom variant="h4" component="div">
-          Artilleros (1) VS Sad Eyes (7)
+          {match.team1} (1) VS {match.team2} (7)
           </Typography>
  
         </Box>

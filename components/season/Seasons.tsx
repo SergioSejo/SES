@@ -1,7 +1,9 @@
-import React, { FC } from 'react'
+import React, { FC, useContext } from 'react';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { Box, Typography } from '@mui/material';
+
+import { SeasonContext } from '../../context/season';
 
 interface Props {
     title?: string;
@@ -9,17 +11,20 @@ interface Props {
 
 export const Seasons:FC<Props> = ({ title }) => {
 
+    const { seasonActive, changeSeason } = useContext( SeasonContext );
+
     const handleChange = (event: SelectChangeEvent) => {
-        console.log("HOLA MUNDO");
-      };
+        changeSeason(event.target.value);
+    };
+
     return (
         <Box>
             <Box sx={{display:'flex', justifyContent: 'center'}}>
-            <Typography variant="h2">
-                { title } de la
-            </Typography>
+                <Typography variant="h2">
+                    { title } de la
+                </Typography>
                 <Select
-                    value={"2"}
+                    value={seasonActive}
                     onChange={handleChange}
                 >
                     <MenuItem value={1}>Temporada 1</MenuItem>

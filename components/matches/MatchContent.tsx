@@ -10,7 +10,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import TextField from '@mui/material/TextField';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { Match } from '@/interfaces';
+import { Match, playerList } from '@/interfaces';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -49,7 +49,16 @@ export const MatchContent:FC<Match> = ({match}) => {
 
   const onClick = (event: React.MouseEvent<HTMLElement>) => {
     router.push('/matches');    
-}
+  }
+
+  const scores = (playerList: playerList[]) => {
+    let scores = "";
+    if(playerList.length > 0)
+    playerList.map( player => scores+=`${player.name} (${player.score}) `);
+    else
+      scores = "Nada que mostrar";
+    return scores;
+  }
 
   return (
     <Card sx={{minHeight: 500}}>
@@ -59,10 +68,10 @@ export const MatchContent:FC<Match> = ({match}) => {
       <CardContent>
         <Box sx={{textAlign:'center'}}>
           <Typography gutterBottom variant="h3" component="div">
-          Temporada 1 - Partido 1
+          Temporada {match.season} - Partido {match.number}
           </Typography>
           <Typography color='#a5d6a7' gutterBottom variant="h4" component="div">
-          {match.team1} (1) VS {match.team2} (7)
+          {match.team1} ({match.goalsTeam1}) VS {match.team2} ({match.goalsTeam2})
           </Typography>
  
         </Box>
@@ -75,21 +84,21 @@ export const MatchContent:FC<Match> = ({match}) => {
         </Box>
         <CustomTabPanel value={value} index={0}>
           <Typography align='center' gutterBottom variant="h6" component="div">
-          Jugadores: Sergio (1), Palomo (1), Kike (1), Rubén (2), Adrián Marcos (2)
+          {scores(match.goalScorers)}
           </Typography>
-          <TextField fullWidth multiline disabled value="Hector haciendo palomadas y recibió un patadón. Salva de portero esplendido y en general les meamos y estaban to picados. Ante la chilena de palomo, algunos comentaron algunas cosas. Primera victoria del Sad Eyes team. Dicen que porra de rubwu. 1-7." />
+          <TextField fullWidth multiline disabled value={match.goalsComments} />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
           <Typography align='center' gutterBottom variant="h6" component="div">
-          Jugadores: Palomo (1), Kike (1), Rubén (2), Adrián Marcos (2)
+          {scores(match.assistants)}
           </Typography>
-          <TextField fullWidth disabled value="Nada que decir, que lo de las asistencias puede sern un canteo. Y que palomo por chupon en el gol de sergio no tiene asistencia." />
+          <TextField fullWidth multiline disabled value={match.assistantsComments} />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={2}>
           <Typography align='center' gutterBottom variant="h6" component="div">
-          Nada que mostrar
+          {scores(match.cards)}
           </Typography>
-          <TextField fullWidth disabled value="Juego limpio." />
+          <TextField fullWidth multiline disabled value={match.cardsComments} />
         </CustomTabPanel>
       </CardContent>
     </Card>

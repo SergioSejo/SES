@@ -1,28 +1,22 @@
 export interface Match {
     _id: string;
     code: string;
+    season: number;
+    number: number;
     team1: string;
     team2: string;
+    goalsTeam1: number;
+    goalsTeam2: number
     date: string;
-    goalScorers: goalScorer[];
+    goalScorers: playerList[];
     goalsComments: string,
-    assistants: assistant[];
+    assistants: playerList[];
     assistantsComments: string,
-    cards: card[];
+    cards: playerList[];
     cardsComments: string,
 }
 
-interface goalScorer {
+export interface playerList {
     name: string;
-    goals: number;
-}
-
-interface assistant {
-    name: string;
-    assistances: number;
-}
-
-interface card {
-    name: string;
-    cards: number;
+    score: number;
 }

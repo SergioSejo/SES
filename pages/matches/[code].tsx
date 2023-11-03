@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import { Layout } from '@/components/layouts';
 import { MatchContent } from '@/components/matches/MatchContent';
 import { Match } from '@/interfaces';
-import { getMatchInfo, matches_mock, codes_mock } from '../../utils';
+import { getMatchInfo, codes_mock } from '../../utils';
 
 interface Props {
   match: Match;
@@ -12,7 +12,7 @@ interface Props {
 
 const MatchPage: NextPage<Props> = ({ match }) => {
   return (
-    <Layout title='Temporada 1 - Partido 1'>
+    <Layout title={`Temporada ${match.season} - Partido ${match.number}`}>
         <Box sx={{ width: '100%' }}>
         <MatchContent match={match}></MatchContent>
         </Box>

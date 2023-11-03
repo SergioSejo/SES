@@ -2,7 +2,7 @@ export interface Statistic {
     _id: string;
     season: string;
     single: PlayerScore[];
-    total: TotalStatistics[],
+    total: TotalStatistics,
 }
 
 export interface PlayerScore {

@@ -6,7 +6,11 @@ import { CardActionArea } from '@mui/material';
 import { Match } from '@/interfaces';
 import { useRouter } from 'next/router';
 
-export const MatchCard:FC<Match> = ({match}) => {
+interface Props {
+  match: Match;
+}
+
+export const MatchCard:FC<Props> = ({match}) => {
   const router = useRouter();
   const onClick = () => {
     router.push(`/matches/${match.code}`);

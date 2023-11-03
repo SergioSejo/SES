@@ -12,6 +12,10 @@ import TextField from '@mui/material/TextField';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Match, PlayerList } from '@/interfaces';
 
+interface Props {
+  match: Match;
+}
+
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
@@ -38,7 +42,7 @@ function CustomTabPanel(props: TabPanelProps) {
   );
 }
 
-export const MatchContent:FC<Match> = ({match}) => {
+export const MatchContent:FC<Props> = ({match}) => {
 
   const [value, setValue] = useState(0);
   const router = useRouter();

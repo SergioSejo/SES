@@ -10,7 +10,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import TextField from '@mui/material/TextField';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { Match, playerList } from '@/interfaces';
+import { Match, PlayerList } from '@/interfaces';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -51,7 +51,7 @@ export const MatchContent:FC<Match> = ({match}) => {
     router.push('/matches');    
   }
 
-  const scores = (playerList: playerList[]) => {
+  const scores = (playerList: PlayerList[]) => {
     let scores = "";
     if(playerList.length > 0)
     playerList.map( player => scores+=`${player.name} (${player.score}) `);

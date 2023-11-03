@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { FC } from 'react';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -8,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Box, Typography } from '@mui/material';
+import { TotalStatistics } from '@/interfaces/statistic';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -29,55 +30,43 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     },
 }));
 
-function createDataTotal(
-    goalsTotal: number,
-    assistsTotal: number,
-    cardsTotal: number,
-    pichichi: string,
-    assistant: string,
-    dirty: string
-  ) {
-    return { goalsTotal, assistsTotal, cardsTotal, pichichi, assistant, dirty };
-  }
-  
-  const rowsTotal = [
-    createDataTotal(95, 68, 7,'Javier Palomo', 'Enrique Sánchez', 'Javier Palomo / Héctor'),
-  ];
+interface Props {
+  totalStatistics: TotalStatistics;
+}
 
-export const StatisticsTotal = () => {  
-    return (
-      <>
-        <Box sx={{display:'flex', justifyContent: 'center'}}>
-          <Typography variant="h3">
-              Estadísticas totales
-          </Typography>
-        </Box>
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }}>
-            <TableHead>
-              <TableRow>
-                <StyledTableCell align="right">Goles totales</StyledTableCell>
-                <StyledTableCell align="right">Asistencias totales</StyledTableCell>
-                <StyledTableCell align="right">Tarjetas totales</StyledTableCell>
-                <StyledTableCell align="right">Pichichi</StyledTableCell>
-                <StyledTableCell align="right">Asistente</StyledTableCell>
-                <StyledTableCell align="right">Sucio</StyledTableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rowsTotal.map((rowTotal, index) => (
-                <StyledTableRow key={index}>
-                    <StyledTableCell align="right">{rowTotal.goalsTotal}</StyledTableCell>
-                    <StyledTableCell align="right">{rowTotal.assistsTotal}</StyledTableCell>
-                    <StyledTableCell align="right">{rowTotal.cardsTotal}</StyledTableCell>
-                    <StyledTableCell align="right">{rowTotal.pichichi}</StyledTableCell>
-                    <StyledTableCell align="right">{rowTotal.assistant}</StyledTableCell>
-                    <StyledTableCell align="right">{rowTotal.dirty}</StyledTableCell>
-                </StyledTableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </>
-      );
+export const StatisticsTotal:FC<Props> = ({totalStatistics}) => {  
+  console.log('totalStatistics: ', totalStatistics)
+  return (
+    <>
+      <Box sx={{display:'flex', justifyContent: 'center'}}>
+        <Typography variant="h3">
+            Estadísticas totales
+        </Typography>
+      </Box>
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 650 }}>
+          <TableHead>
+            <TableRow>
+              <StyledTableCell align="right">Goles totales</StyledTableCell>
+              <StyledTableCell align="right">Asistencias totales</StyledTableCell>
+              <StyledTableCell align="right">Tarjetas totales</StyledTableCell>
+              <StyledTableCell align="right">Pichichi</StyledTableCell>
+              <StyledTableCell align="right">Asistente</StyledTableCell>
+              <StyledTableCell align="right">Sucio</StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+              <StyledTableRow >
+                  <StyledTableCell align="right">{totalStatistics.goals}</StyledTableCell>
+                  <StyledTableCell align="right">{totalStatistics.assists}</StyledTableCell>
+                  <StyledTableCell align="right">{totalStatistics.cards}</StyledTableCell>
+                  <StyledTableCell align="right">{totalStatistics.pichichi}</StyledTableCell>
+                  <StyledTableCell align="right">{totalStatistics.assistant}</StyledTableCell>
+                  <StyledTableCell align="right">{totalStatistics.dirty}</StyledTableCell>
+              </StyledTableRow>
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </>
+  );
 }

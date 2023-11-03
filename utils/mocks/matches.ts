@@ -2,8 +2,8 @@ export const matches_mock = [
     {
         "_id": "1",
         "code": "1-1",
-        "season": 1,
-        "number": 1,
+        "season": "1",
+        "number": "1",
         "team1": "Artilleros",
         "team2": "Sad Eyes",
         "goalsTeam1": 1,
@@ -19,8 +19,8 @@ export const matches_mock = [
     {
         "_id": "2",
         "code": "1-2",
-        "season": 1,
-        "number": 2,
+        "season": "1",
+        "number": "2",
         "team1": "Sad Eyes",
         "team2": "Gang&s of Tito",
         "goalsTeam1": 6,
@@ -31,6 +31,23 @@ export const matches_mock = [
         "assistants": [{"name": "Palomo", "score": 1},{"name": "Rubén", "score": 1}],
         "assistantsComments": "Asistencia de Rubén que deja pasar palomo para que Sergio la pise y la ponga en la escuadra de tiro cruzado. Jugada de flipaos donde falla adri ruben la coge palomo e intenta un sombrero al portero…del 7-1 que podíamos haber tenido a después, el 6-2.",
         "cards": [{"name": "Adrián", "score": 1}],
+        "cardsComments": "Juego Limpio."
+    },
+    {
+        "_id": "3",
+        "code": "2-1",
+        "season": "2",
+        "number": "1",
+        "team1": "Juventud Vallekas",
+        "team2": "Sad Eyes",
+        "goalsTeam1": 2,
+        "goalsTeam2": 5,
+        "date": "09/10/2016",
+        "goalScorers": [{"name": "Palomo", "score": 2},{"name": "Kike", "score": 1}],
+        "goalsComments": "Una panda de hijos de puta cerdos. Eran malos, nos meten dos goles de rebote/suerte y se lo creen. Remontamos un 1-0 y un 2-1. Primera parte sin acierto y ellos con faltas, al descanso perdiendo. Su portero paró mucho también. Hector es escupido, no se duchó al llegar a casa. Nos ha quedado claro según el gordo que no tenemos ni idea de fútbol porque hizo una falta TACTICAAAA. Raulito falló una de las suyas, todo ok.",
+        "assistants": [{"name": "Jesús", "score": 1},{"name": "Raulito", "score": 2}],
+        "assistantsComments": "Gran asistencia de primeras de Jesús con la zurda para adri. Las de raulitoeh normalitas tirando a bajas.",
+        "cards": [],
         "cardsComments": "Juego Limpio."
     }
 ];

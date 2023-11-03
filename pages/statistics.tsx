@@ -1,17 +1,31 @@
 import { FC } from 'react';
-import { StatisticsSingle } from '@/components/statistics/StatisticsSingle';
-import { StatisticsTotal } from '@/components/statistics/StatisticsTotal';
+import type { GetStaticProps } from 'next';
 import { Layout } from '@/components/layouts';
+import { StatisticsGrid } from '@/components/statistics/StatisticsGrid';
+import { statistics_mock } from '@/utils';
+import { Statistic } from '@/interfaces/statistic';
 
-export const statisticsPage:FC = () => {
+
+interface Props {
+  statistics: Statistic[];
+}
+
+export const statisticsPage:FC<Props> = ({statistics}) => {
   return (
     <>
       <Layout title='Estadísticas'>
-        <StatisticsSingle></StatisticsSingle>
-        <StatisticsTotal></StatisticsTotal>
+        <StatisticsGrid statistics={statistics}></StatisticsGrid>
       </Layout>
     </>
   );
 };
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  return {
+    props: {
+      statistics: statistics_mock
+    }
+  }
+}
 
 export default statisticsPage;

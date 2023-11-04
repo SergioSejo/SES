@@ -24,7 +24,7 @@ export const Sidebar = () => {
         let destiny = '';
         switch (buttonText) {
             case 'Inicio':
-                destiny = '/';
+                destiny = '/home';
                 break;
             case 'Partidos':
                 destiny = '/matches';
@@ -35,7 +35,10 @@ export const Sidebar = () => {
             default:
                 break;
         }
-        if(destiny != '') router.push(`${ destiny }`);
+        if(destiny != '') {
+            router.push(`${ destiny }`);
+            closeSideMenu();
+        }
         
     }
 

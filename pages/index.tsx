@@ -1,13 +1,20 @@
 import type { NextPage } from 'next';
-import { Layout } from '../components/layouts';
-import { Home } from '@/components/ui/Home';
+import { useRouter } from 'next/router';
 
-const HomePage: NextPage= () => {
+import Button from '@mui/material/Button';
+
+const IndexPage: NextPage= () => {
+
+  const router = useRouter();
+
+  const onClick = () => {
+    router.push('/home');    
+  }
   return (
-    <Layout title='SES'>
-      <Home></Home>
-    </Layout>
+      <>
+        <Button onClick={ onClick } variant="contained" color='secondary'>Entrar</Button>
+      </>
   )
 }
 
-export default HomePage;
+export default IndexPage;

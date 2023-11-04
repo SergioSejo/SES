@@ -35,7 +35,6 @@ interface Props {
 }
 
 export const StatisticsTotal:FC<Props> = ({totalStatistics}) => {  
-  console.log('totalStatistics: ', totalStatistics)
   return (
     <>
       <Box sx={{display:'flex', justifyContent: 'center'}}>

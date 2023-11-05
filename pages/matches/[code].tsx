@@ -2,7 +2,7 @@ import React from 'react';
 import { GetStaticProps, NextPage, GetStaticPaths } from 'next';
 import Box from '@mui/material/Box';
 import { Layout } from '@/components/layouts';
-import { MatchContent } from '@/components/matches/MatchContent';
+import { MatchContent } from '@/components/matches';
 import { Match } from '@/interfaces';
 import { getMatchInfo, codes_mock } from '../../utils';
 

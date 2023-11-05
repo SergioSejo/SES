@@ -1,7 +1,7 @@
 import { FC, useContext } from 'react';
 import Box from '@mui/material/Box';
-import { MatchCard } from './MatchCard';
-import { Seasons } from '../season/Seasons';
+import { MatchCard } from './';
+import { Seasons } from '../season';
 import { Match } from '@/interfaces';
 
 import { SeasonContext } from '../../context/season';

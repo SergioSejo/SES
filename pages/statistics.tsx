@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import type { GetStaticProps } from 'next';
 import { Layout } from '@/components/layouts';
-import { StatisticsGrid } from '@/components/statistics/StatisticsGrid';
+import { StatisticsGrid } from '@/components/statistics';
 import { statistics_mock } from '@/utils';
 import { Statistic } from '@/interfaces/statistic';
 

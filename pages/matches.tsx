@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import type { GetStaticProps } from 'next';
-import { MatchGrid } from '@/components/matches/MatchGrid';
+import { MatchGrid } from '@/components/matches';
 import { Layout } from '@/components/layouts';
 import { Match } from '@/interfaces';
 import { matches_mock } from '@/utils'

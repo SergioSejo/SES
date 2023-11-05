@@ -31,6 +31,12 @@ export const Sidebar = () => {
                 break;
             case 'Estadísticas':
                 destiny = '/statistics';
+                break;
+            case 'Ajustes':
+                destiny = '/settings';
+                break;  
+            case 'Salir':
+                destiny = '/';
                 break;        
             default:
                 break;

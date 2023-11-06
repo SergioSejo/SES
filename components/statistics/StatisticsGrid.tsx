@@ -17,7 +17,7 @@ export const StatisticsGrid:FC<Props> = ({statistics}) => {
 
   return (
     <>
-      <Seasons title='Estadísticas'></Seasons>
+      <Seasons title='Estadísticas de la '></Seasons>
       <Box sx={{ width: '100%', textAlign:'center' }}>
         {
           statistics.map((statistic) => (

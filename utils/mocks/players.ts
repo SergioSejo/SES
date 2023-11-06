@@ -1,0 +1,1 @@
+export const players_mock = ["Sergio","Palomo","Kike","Adrián","Raulito","Héctor","Rubén","Adrián Marcos","Barroso"];

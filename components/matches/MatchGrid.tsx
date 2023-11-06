@@ -16,7 +16,7 @@ export const MatchGrid:FC<Props> = ({matches}) => {
 
   return (
     <>
-      <Seasons title='Partidos'></Seasons>
+      <Seasons title='Partidos de la '></Seasons>
       <Box sx={{ width: '100%', textAlign:'center' }}>
         {
           matches.map((match, index) => (

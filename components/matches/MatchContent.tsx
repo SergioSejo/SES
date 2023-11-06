@@ -51,7 +51,7 @@ export const MatchContent:FC<Props> = ({match}) => {
     setValue(newValue);
   };
 
-  const onClick = (event: React.MouseEvent<HTMLElement>) => {
+  const onClick = () => {
     router.push('/matches');    
   }
 

@@ -106,7 +106,6 @@ const AddStatisticPage: NextPage = () => {
                 </Box>
               ))
             }
-            
           </Box>
           <Box sx={{marginTop:'10px', textAlign:'center'}}>
             <Button sx={{marginRight:'10px'}} onClick={ handleAddSingle } variant="contained" color='secondary' startIcon={<AddCircleIcon />}>Añadir jugador</Button>

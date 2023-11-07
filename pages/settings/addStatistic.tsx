@@ -21,15 +21,18 @@ const AddStatisticPage: NextPage = () => {
   }
 
   const addPlayer = () => {
-    let maxNum = Math.max(...addPlayers);
-    setAddPlayers([...addPlayers, maxNum + 1]);
+    if(addPlayers.length > 0){
+      let maxNum = Math.max(...addPlayers);
+      setAddPlayers([...addPlayers, maxNum + 1]);
+    }else{
+      setAddPlayers([0]);
+    }
+    
   }
 
   const removePLayer = () => {
-    console.log(addPlayers.length);
-    const result = addPlayers.filter((num) => num == addPlayers.length - 1 );
-    console.log('result: ', result);
-    //setAddPlayers(addPlayers.pop());   
+    const result = addPlayers.filter((num) => num != (addPlayers.length - 1) );
+    setAddPlayers([...result]); 
   }
 
   return (

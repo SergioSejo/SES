@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { Layout } from '@/components/layouts';
@@ -12,16 +12,23 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { TextField } from '@mui/material';
 import { Seasons } from '@/components/season';
 import { SeasonContext } from '@/context/season';
+import { UIContext } from '@/context/ui';
 
 const AddStatisticPage: NextPage = () => {
 
+  const { changeTitle  } = useContext( UIContext );
   const { seasonActive } = useContext( SeasonContext );
   const [singles, setSingles] = useState([{name: "", goals: 0, assists: 0, cards: 0}]);
   const router = useRouter();
 
   const onClick = () => {
-    router.push('/settings');    
+    changeTitle('Ajustes');
+    router.push('/settings');  
   }
+
+  useEffect(() => {
+		changeTitle('Ajustes - Añadir estadísticas');
+	}, []);
 
   const handleSingleChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>, i: number) => { 
     const field = e.target.name; 

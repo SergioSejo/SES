@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextPage } from 'next';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { Layout } from '@/components/layouts';
 import Box from '@mui/material/Box';
@@ -11,9 +11,11 @@ import { TextField } from '@mui/material';
 import { Seasons } from '@/components/season';
 import { AddScore } from '@/components/settings';
 import { SeasonContext } from '@/context/season';
+import { UIContext } from '@/context/ui';
 
 const AddMatchPage: NextPage = () => {
 
+  const { changeTitle  } = useContext( UIContext );
   const router = useRouter();
   const { seasonActive } = useContext( SeasonContext );
   const [num, setNum] = useState(1);
@@ -30,8 +32,13 @@ const AddMatchPage: NextPage = () => {
   const [cardsScore, setCardsScore] = useState([]);
 
   const onClick = () => {
+    changeTitle('Ajustes');
     router.push('/settings');    
   }
+
+  useEffect(() => {
+		changeTitle('Ajustes - Añadir partido');
+	}, []);
 
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     let compare = e.target.name;

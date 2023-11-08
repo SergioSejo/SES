@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { Layout } from '@/components/layouts';
 
@@ -7,19 +7,27 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import { UIContext } from '@/context/ui';
 
 
 export const settingsPage:FC = () => {
 
+  const { changeTitle  } = useContext( UIContext );
   const router = useRouter();
   const onClick = (event: React.MouseEvent) => {
     const button = event.target as HTMLInputElement;
     if(button.textContent?.includes('Partidos')){
       router.push(`/settings/addMatch`);
+      changeTitle('Ajustes - Añadir partido');
     }else{
       router.push(`/settings/addStatistic`);
+      changeTitle('Ajustes - Añadir estadísticas');
     }
   }
+
+  useEffect(() => {
+		changeTitle('Ajustes');
+	}, []);
 
   return (
     <>

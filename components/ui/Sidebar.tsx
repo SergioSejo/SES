@@ -15,37 +15,44 @@ const menuItems: string[] = ['Inicio','Partidos','Estadísticas','Ajustes','Sali
 
 export const Sidebar = () => {
 
-    const { sidemenuOpen, closeSideMenu  } = useContext( UIContext );
+    const { sidemenuOpen, closeSideMenu, changeTitle  } = useContext( UIContext );
     const router = useRouter();
 
     const onClick = (event: React.MouseEvent<HTMLElement>) => {
         const button = event.target as HTMLInputElement;
         let buttonText = button.innerText;
         let destiny = '';
+        let titleFinal = 'Inicio';
         switch (buttonText) {
             case 'Inicio':
                 destiny = '/home';
+                titleFinal = 'Inicio';
                 break;
             case 'Partidos':
                 destiny = '/matches';
+                titleFinal = 'Partidos';
                 break;
             case 'Estadísticas':
                 destiny = '/statistics';
+                titleFinal = 'Estadísticas';
                 break;
             case 'Ajustes':
                 destiny = '/settings';
+                titleFinal = 'Ajustes';
                 break;  
             case 'Salir':
                 destiny = '/';
                 break;        
             default:
+                destiny = '/';
+                titleFinal = 'Inicio';
                 break;
         }
         if(destiny != '') {
             router.push(`${ destiny }`);
+            changeTitle(titleFinal);
             closeSideMenu();
         }
-        
     }
 
     return (

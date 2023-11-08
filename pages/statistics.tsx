@@ -1,9 +1,10 @@
-import { FC } from 'react';
+import { FC, useContext, useEffect } from 'react';
 import type { GetStaticProps } from 'next';
 import { Layout } from '@/components/layouts';
 import { StatisticsGrid } from '@/components/statistics';
 import { statistics_mock } from '@/utils';
 import { Statistic } from '@/interfaces/statistic';
+import { UIContext } from '@/context/ui';
 
 
 interface Props {
@@ -11,6 +12,12 @@ interface Props {
 }
 
 export const statisticsPage:FC<Props> = ({statistics}) => {
+
+  const { changeTitle  } = useContext( UIContext );
+  useEffect(() => {
+		changeTitle('Estadísticas');
+	}, []);
+
   return (
     <>
       <Layout title='Estadísticas'>

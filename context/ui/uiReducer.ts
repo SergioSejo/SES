@@ -4,6 +4,7 @@ import { UIState } from './';
 type UIActionType = 
     | { type: 'UI - Open Sidebar' } 
     | { type: 'UI - Close Sidebar' }
+    | { type: 'UI - Change title', payload: string }
 
 
 export const uiReducer = ( state: UIState, action: UIActionType ): UIState => {
@@ -20,6 +21,11 @@ export const uiReducer = ( state: UIState, action: UIActionType ): UIState => {
             ...state,
             sidemenuOpen: false,
            }
+      case 'UI - Change title':
+         return {
+            ...state,
+            titlePage: action.payload,
+         }
 
        default:
           return state;

@@ -7,7 +7,7 @@ import { UIContext } from '../../context/ui';
 
 export const Navbar = () => {
 
-  const { openSideMenu } = useContext( UIContext );
+  const { openSideMenu, titlePage } = useContext( UIContext );
 
   return (
       <AppBar position='sticky'>
@@ -20,7 +20,7 @@ export const Navbar = () => {
                   <MenuOutlinedIcon />
               </IconButton>
 
-              <Typography variant='h6'>Estadísticas - Sad Eyes</Typography>
+              <Typography sx={{marginRight:'30%'}} variant='h6'>SES - {titlePage}</Typography>
           </Toolbar>
       </AppBar>
   )

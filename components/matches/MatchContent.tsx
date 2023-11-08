@@ -75,7 +75,7 @@ export const MatchContent:FC<Props> = ({match}) => {
           Temporada {match.season} - Partido {match.number}
           </Typography>
           <Typography color='#a5d6a7' gutterBottom variant="h4" component="div">
-          {match.team1} ({match.goalsTeam1}) VS {match.team2} ({match.goalsTeam2})
+          {match.local} ({match.goalsLocal}) VS {match.visitor} ({match.goalsVisitor})
           </Typography>
  
         </Box>

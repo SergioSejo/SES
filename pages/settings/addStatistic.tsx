@@ -102,7 +102,7 @@ const AddStatisticPage: NextPage = () => {
                   <TextField name='goals' onChange={(e) => handleSingleChange(e, index)} key={`goals${index}`} id={`goals${index}`} type='number' label="Goles" variant="outlined" />
                   <TextField name='assists' onChange={(e) => handleSingleChange(e, index)} key={`assists${index}`} id={`assists${index}`} type='number' label="Asistencias" variant="outlined" />
                   <TextField name='cards' onChange={(e) => handleSingleChange(e, index)} key={`cards${index}`} id={`cards${index}`} type='number' label="Tarjetas" variant="outlined" />
-                  <Button key={index} className='vertical-center' onClick={() => handleDeleteSingle(index)} variant="contained" color='secondary' startIcon={<DeleteIcon />}>Eliminar</Button>
+                  <Button key={index} className='vertical-center deleteButton' onClick={() => handleDeleteSingle(index)} variant="contained" color='secondary' startIcon={<DeleteIcon />}></Button>
                 </Box>
               ))
             }

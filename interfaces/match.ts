@@ -3,10 +3,10 @@ export interface Match {
     code: string;
     season: string;
     number: string;
-    team1: string;
-    team2: string;
-    goalsTeam1: number;
-    goalsTeam2: number
+    local: string;
+    visitor: string;
+    goalsLocal: number;
+    goalsVisitor: number
     date: string;
     goalScorers: PlayerList[];
     goalsComments: string,

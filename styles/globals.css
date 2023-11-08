@@ -2,6 +2,25 @@
     margin-right: 10px;
 }
 
+.deleteButton {
+    justify-content: flex-start;
+    width: 30px;
+    padding: 6px 10px !important;
+    min-width:0px !important;
+}
+
+.inputGoal{
+    max-width: 100px;
+}
+
+.playerInput{
+    max-width: 300px;
+}
+
+.scoreInput{
+    max-width: 100px;
+}
+
 .vertical-center {
     margin: 0;
     position: absolute;

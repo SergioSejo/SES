@@ -1,57 +1,87 @@
 import React from 'react';
 import { NextPage } from 'next';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import { Layout } from '@/components/layouts';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import DeleteIcon from '@mui/icons-material/Delete';
 import SaveIcon from '@mui/icons-material/Save';
 import { TextField } from '@mui/material';
 import { Seasons } from '@/components/season';
+import { AddScore } from '@/components/settings';
+import { SeasonContext } from '@/context/season';
 
 const AddMatchPage: NextPage = () => {
 
   const router = useRouter();
-  const [goalsScore, setGoalsScore] = useState([{}]);
-
-  const handleSingleChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>, i: number) => { 
-    const field = e.target.name; 
-    const newGoals = [...goalsScore]; 
-    let finalValue: String | Number = e.target.value;
-    if(field!="name"){
-      finalValue = Number(e.target.value);
-    }
-    newGoals[i][field] = finalValue;
-    setGoalsScore(newGoals); 
-  }; 
-
-  const handleAddGoals = () => {
-    setGoalsScore([...goalsScore, {"name": "", "score": 0}]);
-  }
-
-  const handleDeleteGoal = (i: number) => { 
-    const newSingles = [...goalsScore]; 
-    newSingles.splice(i, 1); 
-    setGoalsScore(newSingles); 
-  }; 
-
-  /*const handleAddAssists = () => {
-    setMatch([...match, {name: "", goals: 0, assists: 0, cards: 0}]);
-  }
-
-  const handleAddCards = () => {
-    setMatch([...match, {name: "", goals: 0, assists: 0, cards: 0}]);
-  }*/
+  const { seasonActive } = useContext( SeasonContext );
+  const [num, setNum] = useState(1);
+  const [local, setLocal] = useState('');
+  const [goalsLocal, setGoalsLocal] = useState(0);
+  const [visitor, setVisitor] = useState('');
+  const [goalsVisitor, setGoalsVisitor] = useState(0);
+  const [date, setDate] = useState('');
+  const [goalsComments, setGoalsComments] = useState('');
+  const [assistsComments, setAssistsComments] = useState('');
+  const [cardComments, setCardComments] = useState('');
+  const [goalsScore, setGoalsScore] = useState([]);
+  const [assistsScore, setAssistsScore] = useState([]);
+  const [cardsScore, setCardsScore] = useState([]);
 
   const onClick = () => {
     router.push('/settings');    
   }
 
+  const onChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+    let compare = e.target.name;
+    let valor = e.target.value;
+    switch (compare) {
+      case 'number':
+        setNum(Number(valor)) 
+        break;
+      case 'local':
+        setLocal(valor)
+        break;
+      case 'goalsLocal':
+        setGoalsLocal(Number(valor))
+          break;
+      case 'visitor':
+        setVisitor(valor)
+          break;
+      case 'goalsVisitor':
+        setGoalsVisitor(Number(valor))
+          break;
+      case 'date':
+        setDate(valor.split("-").reverse().join("-"))
+          break;
+      default:
+        break;
+    }
+  }
+
   const save = () => {
-    alert("hola");
+    buildCollection();
+  }
+
+  const buildCollection = () => {
+    let final = {
+      "code": `${seasonActive}-${num}`,
+      "season": `${seasonActive}`,
+      "number": `${num}`,
+      "local": `${local}`,
+      "visitor": `${visitor}`,
+      "goalsLocal": goalsLocal,
+      "goalsVisitor": goalsVisitor,
+      "date": date,
+      "goalScorers": goalsScore,
+      "goalsComments": goalsComments,
+      "assistants": assistsScore,
+      "assistantsComments": assistsComments,
+      "cards": cardsScore,
+      "cardsComments": cardComments
+    }
+    console.log('final: ', final);
   }
 
   return (
@@ -63,25 +93,20 @@ const AddMatchPage: NextPage = () => {
           <Seasons title='Seleccione la'></Seasons>
           <Box sx={{ width: '100%', textAlign:'center', padding:'15px' }}>
             <Box sx={{position: 'relative', marginTop:'10px'}} className='rowAddPlayer'>
-              <TextField name='number' type='number' label="Número" variant="outlined" />
-              <TextField name='team1' type='text' label="Local" variant="outlined" />
-              <TextField name='goalsTeam1' type='number' label="Goles" variant="outlined" />
-              <TextField name='team2' type='text' label="Visitante" variant="outlined" />
-              <TextField name='goalsTeam2' type='number' label="Goles" variant="outlined" />
-              <TextField name='date' type='date' variant="outlined" />
-              {
-                goalsScore.map((g, index) => (
-                  <Box key={index} sx={{position: 'relative', marginTop:'10px'}} className='rowAddPlayer'>
-                    <TextField name='name' onChange={(e) => handleSingleChange(e, index)}  key={`player${index}`} id={`player${index}`} type='text' label="Jugador" variant="outlined" />
-                    <TextField name='goals' onChange={(e) => handleSingleChange(e, index)} key={`goals${index}`} id={`goals${index}`} type='number' label="Goles" variant="outlined" />
-                    <Button key={index} className='vertical-center' onClick={() => handleDeleteGoal(index)} variant="contained" color='secondary' startIcon={<DeleteIcon />}></Button>
-                  </Box>
-                ))
-              }
+              <TextField onChange={onChange} className='scoreInput' name='number' type='number' label="Número" variant="outlined" />
+              <TextField onChange={onChange} name='local' type='text' label="Local" variant="outlined" />
+              <TextField onChange={onChange} className='scoreInput' name='goalsLocal' type='number' label="Goles" variant="outlined" />
+              <TextField onChange={onChange} name='visitor' type='text' label="Visitante" variant="outlined" />
+              <TextField onChange={onChange} className='scoreInput' name='goalsVisitor' type='number' label="Goles" variant="outlined" />
+              <TextField onChange={onChange} name='date' type='date' variant="outlined" />
+              <Box sx={{position: 'relative', marginTop:'10px'}}>
+                <AddScore title='Goles' score={goalsScore} setScore={setGoalsScore} setComments={setGoalsComments}></AddScore>               
+                <AddScore title='Asistencias' score={assistsScore} setScore={setAssistsScore} setComments={setAssistsComments}></AddScore>               
+                <AddScore title='Tarjetas' score={cardsScore} setScore={setCardsScore} setComments={setCardComments}></AddScore>               
+              </Box>
             </Box>            
           </Box>
           <Box sx={{marginTop:'10px', textAlign:'center'}}>
-            <Button sx={{marginRight:'10px'}} onClick={ handleAddGoals } variant="contained" color='secondary' startIcon={<AddCircleIcon />}>Añadir Goles</Button>
             <Button onClick={ save } variant="contained" color='primary' startIcon={<SaveIcon />}>Guardar</Button>
           </Box>
         </Box>

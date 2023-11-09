@@ -21,10 +21,11 @@ export const Seasons:FC<Props> = ({ title }) => {
     return (
         <Box>
             <Box sx={{display:'flex', justifyContent: 'center'}}>
-                <Typography variant="h2">
+                <Typography sx={{marginRight: '10px'}} variant="h4">
                     { title }
                 </Typography>
                 <Select
+                    sx={{maxHeight:'40px'}}
                     value={seasonActive}
                     onChange={handleChange}
                 >

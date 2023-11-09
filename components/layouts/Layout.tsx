@@ -11,18 +11,17 @@ interface Props {
 
 export const Layout:FC<PropsWithChildren<Props>> = ({ title = 'SES', children }) => {
   return (
-      <Box sx={{ flexFlow: 1 }}>
-          <Head>
-                <title>{ title }</title>
-          </Head>
+      <Box sx={{ height:'100%', flexFlow: 1 }}>
+        <Head>
+            <title>{ title }</title>
+        </Head>
 
-            <Navbar />
-            <Sidebar />
+        <Navbar />
+        <Sidebar />
 
-            <Box sx={{ padding: '10px 20px'  }}>
-                { children }
-            </Box>
-
+        <Box sx={{ padding: '10px 20px'  }}>
+            { children }
+        </Box>
       </Box>
   )
 };

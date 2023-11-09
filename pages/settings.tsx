@@ -6,9 +6,8 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import { CardActionArea, CardMedia } from '@mui/material';
 import { UIContext } from '@/context/ui';
-
 
 export const settingsPage:FC = () => {
 
@@ -35,10 +34,19 @@ export const settingsPage:FC = () => {
         <Box sx={{ width: '100%', textAlign:'center' }}>
           <Card sx={{ display: 'inline-block', margin: '10px' }}>
             <CardActionArea sx={{ minHeight: 200}} onClick={onClick}>
+              <CardMedia
+                component="img"
+                height="300"
+                src="/static/img/matches.jpg"
+                alt="Partidos"
+              />
               <CardContent>
-                  <Typography gutterBottom variant="h6" component="div">
-                  Partidos
-                  </Typography>
+              <Typography gutterBottom variant="h5" component="div">
+                Partidos
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Añadir partidos a la base de datos: temporada, equipo local, visitante, goles, fecha...
+              </Typography>
               </CardContent>
             </CardActionArea>
           </Card>

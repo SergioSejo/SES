@@ -1,47 +1,35 @@
 import type { NextPage } from 'next';
-import { useRouter } from 'next/router';
 
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 
 import { Footer, MainFeaturedPost, FeaturedPost } from '@/components/presentation';
-import { Button } from '@mui/material';
 
 const mainFeaturedPost = {
   title: 'Bienvenido a las estadísticas de SAD EYES',
   description:
-    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
-  image: 'https://source.unsplash.com/random?wallpapers',
-  imageText: 'main image description',
-  linkText: 'Continue reading…',
+    "Aquí podrás ver todos los datos relevantes acerca del equipo más laureado de la liga de moratalaz durante los años 2016-2020.",
+  image: '/static/img/firstTeam.jpg',
+  imageText: 'Escudo del equipo',
+  linkText: '¡Descúbrelo!',
 };
 
 const featuredPosts = [
   {
-    title: 'Featured post',
-    date: 'Nov 12',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random?wallpapers',
-    imageLabel: 'Image Text',
+    title: 'Partidos',
+    description: 'Como quedamos contra aquel equipo, quién metió gol en el último partido...¡todos los detalles!',
+    image: '/static/img/matches.jpg',
+    imageLabel: 'Partidos',
   },
   {
-    title: 'Post title',
-    date: 'Nov 11',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random?wallpapers',
-    imageLabel: 'Image Text',
+    title: 'Estadísticas',
+    description: 'El pichichi de cada temporada, el más asistente, el más SUCIO...¡todos los datos!',
+    image: '/static/img/statistics.jpg',
+    imageLabel: 'Estadísticas',
   },
 ];
 
 const IndexPage: NextPage= () => {
-
-  const router = useRouter();
-
-  const onClick = () => {
-    router.push('/home');    
-  }
   return (
       <>
         <Container maxWidth="lg">
@@ -53,10 +41,8 @@ const IndexPage: NextPage= () => {
               ))}
             </Grid>
           </main>
-          <Button onClick={ onClick } variant="contained" color='secondary'>Entrar</Button>
         </Container>
         <Footer
-          title=""
           description="Todos los derechos reservados"
         />
       </>

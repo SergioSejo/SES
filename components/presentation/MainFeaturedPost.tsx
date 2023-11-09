@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useRouter } from 'next/router';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
@@ -16,7 +17,9 @@ interface MainFeaturedPostProps {
 }
 
 export function MainFeaturedPost(props: MainFeaturedPostProps) {
+  
   const { post } = props;
+  const router = useRouter();
 
   return (
     <Paper
@@ -31,18 +34,7 @@ export function MainFeaturedPost(props: MainFeaturedPostProps) {
         backgroundImage: `url(${post.image})`,
       }}
     >
-      {/* Increase the priority of the hero background image */}
       {<img style={{ display: 'none' }} src={post.image} alt={post.imageText} />}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          right: 0,
-          left: 0,
-          backgroundColor: 'rgba(0,0,0,.3)',
-        }}
-      />
       <Grid container>
         <Grid item md={6}>
           <Box
@@ -58,7 +50,7 @@ export function MainFeaturedPost(props: MainFeaturedPostProps) {
             <Typography variant="h5" color="inherit" paragraph>
               {post.description}
             </Typography>
-            <Link variant="subtitle1" href="#">
+            <Link variant="subtitle1" href="/home">
               {post.linkText}
             </Link>
           </Box>

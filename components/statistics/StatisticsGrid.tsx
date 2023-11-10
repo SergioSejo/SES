@@ -17,8 +17,8 @@ export const StatisticsGrid:FC<Props> = ({statistics}) => {
 
   return (
     <>
-      <Seasons title='Estadísticas de la '></Seasons>
-      <Box sx={{ width: '100%', textAlign:'center' }}>
+      <Box sx={{ paddingTop: '10px', width: '100%', textAlign:'center' }}>
+        <Seasons title='Estadísticas de la '></Seasons>
         {
           statistics.map((statistic) => (
             statistic.season == seasonActive 

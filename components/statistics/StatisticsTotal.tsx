@@ -36,8 +36,8 @@ interface Props {
 
 export const StatisticsTotal:FC<Props> = ({totalStatistics}) => {  
   return (
-    <>
-      <Box sx={{display:'flex', justifyContent: 'center'}}>
+    <Box sx={{marginTop:'10px'}}>
+      <Box sx={{display:'flex', backgroundColor:'#121212', justifyContent: 'center'}}>
         <Typography variant="h3">
             Estadísticas totales
         </Typography>
@@ -66,6 +66,6 @@ export const StatisticsTotal:FC<Props> = ({totalStatistics}) => {
           </TableBody>
         </Table>
       </TableContainer>
-    </>
+    </Box>
   );
 }

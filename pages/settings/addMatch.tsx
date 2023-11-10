@@ -93,7 +93,7 @@ const AddMatchPage: NextPage = () => {
 
   return (
     <Layout title='Añadir partido'>
-        <Box sx={{ width: '100%' }}>
+        <Box sx={{ backgroundColor:'#121212', width: '100%', minHeight:'600px' }}>
           <Box sx={{textAlign:'left'}}>
             <Button onClick={ onClick } variant="contained" color='secondary' startIcon={<ArrowBackIcon />}>Volver</Button>
           </Box>

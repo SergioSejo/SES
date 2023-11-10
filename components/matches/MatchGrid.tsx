@@ -16,8 +16,8 @@ export const MatchGrid:FC<Props> = ({matches}) => {
 
   return (
     <>
-      <Seasons title='Partidos de la '></Seasons>
-      <Box sx={{ width: '100%', textAlign:'center' }}>
+      <Box sx={{ paddingTop: '10px', width: '100%', textAlign:'center' }}>
+        <Seasons title='Partidos de la '></Seasons>
         {
           matches.map((match, index) => (
              match.season == seasonActive ? <MatchCard key={index} match={match}></MatchCard> : <></>

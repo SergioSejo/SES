@@ -15,7 +15,7 @@ export const settingsPage:FC = () => {
   const router = useRouter();
   const onClick = (event: React.MouseEvent) => {
     const button = event.target as HTMLInputElement;
-    if(button.textContent?.includes('Partidos')){
+    if(button.alt?.includes('Partidos')){
       router.push(`/settings/addMatch`);
       changeTitle('Ajustes - Añadir partido');
     }else{
@@ -33,28 +33,37 @@ export const settingsPage:FC = () => {
       <Layout title='Ajustes'>
         <Box sx={{ width: '100%', textAlign:'center' }}>
           <Card sx={{ display: 'inline-block', margin: '10px' }}>
-            <CardActionArea sx={{ minHeight: 200}} onClick={onClick}>
+            <CardActionArea sx={{ minHeight: 250}} onClick={onClick}>
               <CardMedia
                 component="img"
-                height="300"
+                height="400"
                 src="/static/img/matches.jpg"
                 alt="Partidos"
               />
               <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Partidos
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Añadir partidos a la base de datos: temporada, equipo local, visitante, goles, fecha...
-              </Typography>
+                <Typography gutterBottom variant="h5" component="div">
+                  Partidos
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Añadir partidos a la base de datos: temporada, equipo local, visitante, goles, fecha...
+                </Typography>
               </CardContent>
             </CardActionArea>
           </Card>
           <Card sx={{ display: 'inline-block', margin: '10px' }}>
-            <CardActionArea sx={{ minHeight: 200}} onClick={onClick}>
+            <CardActionArea sx={{ minHeight: 250}} onClick={onClick}>
+              <CardMedia
+                component="img"
+                height="400"
+                src="/static/img/statistics.jpg"
+                alt="Estadísticas"
+              />
               <CardContent>
                   <Typography gutterBottom variant="h6" component="div">
                   Estadísticas
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                  Añadir Estadísticas a la base de datos: goles totales, asistencias, tarjetas...
                   </Typography>
               </CardContent>
             </CardActionArea>

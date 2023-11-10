@@ -19,8 +19,8 @@ export const Seasons:FC<Props> = ({ title }) => {
     };
 
     return (
-        <Box>
-            <Box sx={{display:'flex', justifyContent: 'center'}}>
+        <Box sx={{textAlign:'center', display:'flex'}}>
+            <Box sx={{ display: 'flex', margin:'0px auto', backgroundColor:'#121212'}}>
                 <Typography sx={{marginRight: '10px'}} variant="h4">
                     { title }
                 </Typography>

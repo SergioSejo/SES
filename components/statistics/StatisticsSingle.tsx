@@ -8,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { PlayerScore } from '@/interfaces/statistic';
+import { Box } from '@mui/material';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -36,7 +37,7 @@ interface Props {
 
 export const StatisticsSingle:FC<Props> = ({playerScore}) => {  
   return (
-    <>
+    <Box sx={{marginTop: '10px'}}>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }}>
           <TableHead>
@@ -61,6 +62,6 @@ export const StatisticsSingle:FC<Props> = ({playerScore}) => {
           </TableBody>
         </Table>
       </TableContainer>
-    </>
+    </Box>
   );
 }

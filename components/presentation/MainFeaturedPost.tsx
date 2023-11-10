@@ -1,61 +1,57 @@
 import * as React from 'react';
 import { useRouter } from 'next/router';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
+import { Card, CardContent, CardMedia, Link, Typography } from '@mui/material';
 
-interface MainFeaturedPostProps {
-  post: {
-    description: string;
-    image: string;
-    imageText: string;
-    linkText: string;
-    title: string;
-  };
-}
+const mainFeaturedPost = {
+  title: 'Bienvenido a SES',
+  description:
+    "Aquí podrás ver todos los datos relevantes acerca del equipo más laureado y reconocido de la liga de fútbol 7 de moratalaz durante los años 2016-2020.",
+  image: '/static/img/firstTeam.jpg',
+  logo: '/static/img/logo.jpg',
+  imageText: 'Equipo',
+  linkText: '¡Descúbrelo!',
+};
 
-export function MainFeaturedPost(props: MainFeaturedPostProps) {
+export function MainFeaturedPost() {
   
-  const { post } = props;
   const router = useRouter();
 
+  const onClick = (event: React.MouseEvent) => {
+    router.push('/home');
+  }
+
   return (
-    <Paper
-      sx={{
-        position: 'relative',
-        backgroundColor: 'grey.800',
-        color: '#fff',
-        mb: 4,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        backgroundImage: `url(${post.image})`,
-      }}
-    >
-      {<img style={{ display: 'none' }} src={post.image} alt={post.imageText} />}
-      <Grid container>
-        <Grid item md={6}>
-          <Box
-            sx={{
-              position: 'relative',
-              p: { xs: 3, md: 6 },
-              pr: { md: 0 },
-            }}
+    <Box sx={{ maxWidth: '1000px', margin:'0px auto' }}>
+      <Card sx={{display:'flex', maxHeight:'500px'}}>
+        <CardContent sx={{ minWidth:'200px', flex: 1 }}>
+          <CardMedia
+            component="img"
+            sx={{ height: 200, width: 160 }}
+            image={mainFeaturedPost.logo}
+            alt='Escudo'
+          />
+          <Typography variant="subtitle1" paragraph>
+          {mainFeaturedPost.title}
+          </Typography>
+          <Typography variant="subtitle1" paragraph>
+          {mainFeaturedPost.description}
+          </Typography>
+          <Link
+            component="button"
+            variant="body2"
+            onClick={onClick}
           >
-            <Typography component="h1" variant="h3" color="inherit" gutterBottom>
-              {post.title}
-            </Typography>
-            <Typography variant="h5" color="inherit" paragraph>
-              {post.description}
-            </Typography>
-            <Link variant="subtitle1" href="/home">
-              {post.linkText}
-            </Link>
-          </Box>
-        </Grid>
-      </Grid>
-    </Paper>
+            ¡Descúbrelo!
+          </Link>
+        </CardContent>
+        <CardMedia
+          component="img"
+          sx={{ height: 500, width: 1000, display: { xs: 'none', sm: 'block' } }}
+          image={mainFeaturedPost.image}
+          alt={mainFeaturedPost.imageText}
+        />
+      </Card>
+    </Box>
   );
 }

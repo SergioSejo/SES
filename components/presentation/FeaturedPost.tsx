@@ -1,46 +1,49 @@
 import * as React from 'react';
+import { useRouter } from 'next/router';
 import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
-import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import Link from '@mui/material/Link';
 
 interface FeaturedPostProps {
   post: {
+    title: string;
     description: string;
     image: string;
     imageLabel: string;
-    title: string;
   };
 }
 
 export function FeaturedPost(props: FeaturedPostProps) {
   const { post } = props;
+  const router = useRouter();
+
+  const onClick = (event: React.MouseEvent) => {
+    const destiny = post.title == 'partidos' ? 'matches' : 'statistics';
+    router.push(`/${destiny}`);
+  }
 
   return (
-    <Grid item xs={12} md={6}>
-      <CardActionArea component="a" href={post.title == 'Partidos' ? '/matches' : '/statistics'}>
-        <Card sx={{ display: 'flex' }}>
-          <CardContent sx={{ flex: 1 }}>
-            <Typography component="h2" variant="h5">
-              {post.title}
-            </Typography>
-            <Typography variant="subtitle1" paragraph>
-              {post.description}
-            </Typography>
-            <Typography variant="subtitle1" color="primary">
-              Continuar...
-            </Typography>
-          </CardContent>
-          <CardMedia
-            component="img"
-            sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
-            image={post.image}
-            alt={post.imageLabel}
-          />
-        </Card>
-      </CardActionArea>
-    </Grid>
+    <Card sx={{ minWidth:'490px', display: 'flex', margin:'10px 5px 0px 5px' }}>
+      <CardContent sx={{ flex: 1 }}>
+        <Typography variant="subtitle1" paragraph>
+        {post.description}
+        </Typography>
+        <Link
+          component="button"
+          variant="body2"
+          onClick={onClick}
+        >
+          Ver {post.title}
+      </Link>
+      </CardContent>
+      <CardMedia
+        component="img"
+        sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
+        image={post.image}
+        alt={post.imageLabel}
+      />
+    </Card>
   );
 }

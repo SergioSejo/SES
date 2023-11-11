@@ -43,7 +43,7 @@ export const Swipeable = () => {
             bgcolor: 'primary',
           }}
         >
-          <Typography>{images_swipeables[activeStep].label}</Typography>
+          <Typography sx={{margin: '0px auto'}}>{images_swipeables[activeStep].label}</Typography>
         </Paper>
         <AutoPlaySwipeableViews
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}

@@ -13,11 +13,14 @@ import { TextField } from '@mui/material';
 import { Seasons } from '@/components/season';
 import { SeasonContext } from '@/context/season';
 import { UIContext } from '@/context/ui';
+import { StatisticContext } from '@/context/statistic';
+import { Statistic, StatisticWithourId } from '@/interfaces';
 
 const AddStatisticPage: NextPage = () => {
 
   const { changeTitle  } = useContext( UIContext );
   const { seasonActive } = useContext( SeasonContext );
+  const { addStatistic } = useContext( StatisticContext );
   const [singles, setSingles] = useState([{name: "", goals: 0, assists: 0, cards: 0}]);
   const router = useRouter();
 
@@ -52,7 +55,8 @@ const AddStatisticPage: NextPage = () => {
   }; 
 
   const save = () => {
-    buildCollection();
+    const final = buildCollection();
+    addStatistic(final);
   }
 
   const buildCollection = () => {
@@ -61,7 +65,7 @@ const AddStatisticPage: NextPage = () => {
       "single": singles,
       "total": buildTotal()
     }
-    console.log('final: ', final);
+    return final;
   }
 
   const buildTotal = () => {
@@ -83,7 +87,7 @@ const AddStatisticPage: NextPage = () => {
   const buildPlayersTotals = (type: number) => {
     let total = '';
     let maxScore = type == 0 ? Math.max(...singles.map(o => o.goals)) : type == 1 ? Math.max(...singles.map(o => o.assists)) : Math.max(...singles.map(o => o.cards));
-    let totals = type == 0 ? singles.filter(x => x.goals == maxScore) : type == 0 ? singles.filter(x => x.assists == maxScore) : singles.filter(x => x.cards == maxScore);
+    let totals = type == 0 ? singles.filter(x => x.goals == maxScore) : type == 1 ? singles.filter(x => x.assists == maxScore) : singles.filter(x => x.cards == maxScore);
     totals.map(t => {
       if(total == ''){
         total = t.name

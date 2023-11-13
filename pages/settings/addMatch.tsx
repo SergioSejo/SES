@@ -88,7 +88,6 @@ const AddMatchPage: NextPage = () => {
       "cards": cardsScore,
       "cardsComments": cardComments
     }
-    console.log('final: ', final);
   }
 
   return (

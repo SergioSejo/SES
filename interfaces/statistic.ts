@@ -5,6 +5,12 @@ export interface Statistic {
     total: TotalStatistics,
 }
 
+export interface StatisticWithourId{
+    season: string,
+    single: PlayerScore[];
+    total: TotalStatistics,
+}
+
 export interface PlayerScore {
     name: string;
     goals: number;
@@ -13,10 +19,10 @@ export interface PlayerScore {
 }
 
 export interface TotalStatistics {
-    goals: string;
+    goals: number;
     assists: number;
     cards: number;
-    pichichi: number;
-    assistant: number;
-    dirty: number;
+    pichichi: string;
+    assistant: string;
+    dirty: string;
 }

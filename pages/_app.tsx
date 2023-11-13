@@ -5,6 +5,7 @@ import type { AppProps } from 'next/app'
 import { mainTheme } from '../themes';
 import { UIProvider } from '../context/ui';
 import { SeasonProvider } from '../context/season';
+import { StatisticProvider } from '../context/statistic';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -12,7 +13,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <ThemeProvider theme={mainTheme}>
         <CssBaseline></CssBaseline>
         <SeasonProvider>
-          <Component {...pageProps} />
+          <StatisticProvider>
+            <Component {...pageProps} />
+          </StatisticProvider>
         </SeasonProvider>
       </ThemeProvider>
     </UIProvider>

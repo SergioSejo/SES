@@ -9,7 +9,7 @@ export const InfoGrid = () => {
     <div>
       {
         infoExtra.map((info, index) => (
-            <InfoExtra info={{...info,index}}></InfoExtra>
+            <InfoExtra key={index} info={{...info,index}}></InfoExtra>
         ))
       }
     </div>

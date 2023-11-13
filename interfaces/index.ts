@@ -1,1 +1,2 @@
-export * from './match'
+export * from './match';
+export * from './statistic';

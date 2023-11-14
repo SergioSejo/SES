@@ -5,10 +5,11 @@ import Button from '@mui/material/Button';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { TextField } from '@mui/material';
+import { PlayerList } from '@/interfaces';
 
 interface Props {
   title: String;
-  score: Array<Object>;
+  score: PlayerList[];
   setScore: Function;
   setComments: Function;
 }
@@ -19,11 +20,16 @@ export const AddScore:FC<Props> = ({ title, score, setScore, setComments }) => {
   const handleScoreChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>, i: number) => { 
     const field = e.target.name; 
     const newScore = [...score]; 
-    let finalValue: String | Number = e.target.value;
-    if(field!="name"){
-      finalValue = Number(e.target.value);
+    switch (field) {
+      case "name":
+        newScore[i].name = e.target.value;
+        break;
+      case "score":
+        newScore[i].score = Number(e.target.value);
+        break;
+      default:
+        break;
     }
-    newScore[i][field] = finalValue;
     setScore(newScore); 
   };
 

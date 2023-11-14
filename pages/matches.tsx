@@ -27,8 +27,8 @@ export const MatchesPage:FC<Props> = ({matches}) => {
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  //const { data } = await matchesApi.get<Match[]>('');
-  const data:Match[] = []; 
+  const { data } = await matchesApi.get<Match[]>('');
+  //const data:Match[] = []; 
   return {
     props: {
       matches: data

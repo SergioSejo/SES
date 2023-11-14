@@ -12,6 +12,7 @@ import { Seasons } from '@/components/season';
 import { AddScore } from '@/components/settings';
 import { SeasonContext } from '@/context/season';
 import { UIContext } from '@/context/ui';
+import { PlayerList } from '@/interfaces';
 
 const AddMatchPage: NextPage = () => {
 
@@ -27,9 +28,9 @@ const AddMatchPage: NextPage = () => {
   const [goalsComments, setGoalsComments] = useState('');
   const [assistsComments, setAssistsComments] = useState('');
   const [cardComments, setCardComments] = useState('');
-  const [goalsScore, setGoalsScore] = useState([]);
-  const [assistsScore, setAssistsScore] = useState([]);
-  const [cardsScore, setCardsScore] = useState([]);
+  const [goalsScore, setGoalsScore] = useState<PlayerList[]>([]);
+  const [assistsScore, setAssistsScore] = useState<PlayerList[]>([]);
+  const [cardsScore, setCardsScore] = useState<PlayerList[]>([]);
 
   const onClick = () => {
     changeTitle('Ajustes');

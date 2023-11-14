@@ -9,7 +9,7 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
-import { images_swipeables } from '@/static/data/imagesSwieapbles';
+import { images_swipeables } from '@/public/static/data/imagesSwieapbles';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 

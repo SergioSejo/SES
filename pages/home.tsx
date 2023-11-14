@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react';
 import type { NextPage } from 'next';
 import { Layout } from '../components/layouts';
 import { UIContext } from '@/context/ui';
-import { Box, Card, CardMedia, CardContent, Typography } from '@mui/material';
+import { Box, Card, CardMedia, Typography } from '@mui/material';
 import { Swipeable } from '@/components/home';
 import { InfoGrid } from '@/components/home/InfoGrid';
 

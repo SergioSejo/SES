@@ -1,5 +1,5 @@
 import React from 'react';
-import { infoExtra } from '@/static/data/infoExtra';
+import { infoExtra } from '@/public/static/data/infoExtra';
 import { InfoExtra } from './InfoExtra';
 
 

@@ -6,7 +6,6 @@ import { StatisticsTotal } from '@/components/statistics';
 
 import { SeasonContext } from '../../context/season';
 import { StatisticContext } from '@/context/statistic';
-import { Statistic } from '@/interfaces/statistic';
 
 
 

@@ -1,20 +1,20 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { db } from '../../../database';
-import { Statistic, IStatistic } from '../../../models';
+import { Match, IMatch } from '../../../models';
 
 type Data = 
     | { message: string }
-    | IStatistic[]
-    | IStatistic
+    | IMatch[]
+    | IMatch
 
 export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
     
     switch ( req.method ) {
         case 'GET':
-            return getStatistics( res );
+            return getMatches( res );
 
         case 'POST':
-            return postStatistic( req, res );
+            return postMatch( req, res );
     
         default:
             return res.status(400).json({ message: 'Endpoint does not exist' });
@@ -22,27 +22,27 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
 }
 
 
-const getStatistics = async( res: NextApiResponse<Data> ) => {
+const getMatches = async( res: NextApiResponse<Data> ) => {
 
     await db.connect();
-    const statistics = await Statistic.find().sort({ season: 'ascending' });
+    const matches = await Match.find().sort({ code: 'ascending' });
     await db.disconnect();
 
-    return res.status(200).json( statistics );
+    return res.status(200).json( matches );
 }
 
 
-const postStatistic = async( req: NextApiRequest, res: NextApiResponse<Data> ) => {
+const postMatch = async( req: NextApiRequest, res: NextApiResponse<Data> ) => {
 
-    const newStatistic = new Statistic({...req.body});
+    const newMatch = new Match({...req.body});
 
     try {
 
         await db.connect();
-        await newStatistic.save();
+        await newMatch.save();
         await db.disconnect();
 
-        return res.status(201).json( newStatistic );
+        return res.status(201).json( newMatch );
         
     } catch (error) {
         await db.disconnect();

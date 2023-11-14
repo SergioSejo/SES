@@ -10,7 +10,7 @@ const HomePage: NextPage= () => {
   const { changeTitle  } = useContext( UIContext );
   useEffect(() => {
 		changeTitle('Inicio');
-	}, []);
+	},[]);
   return (
     <Layout title='Inicio'>
       <Box sx={{ width: '100%', textAlign:'center' }}>

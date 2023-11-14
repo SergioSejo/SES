@@ -14,14 +14,14 @@ import { Seasons } from '@/components/season';
 import { SeasonContext } from '@/context/season';
 import { UIContext } from '@/context/ui';
 import { StatisticContext } from '@/context/statistic';
-import { Statistic, StatisticWithourId } from '@/interfaces';
+import { PlayerScore } from '@/interfaces';
 
 const AddStatisticPage: NextPage = () => {
 
   const { changeTitle  } = useContext( UIContext );
   const { seasonActive } = useContext( SeasonContext );
   const { addStatistic } = useContext( StatisticContext );
-  const [singles, setSingles] = useState([{name: "", goals: 0, assists: 0, cards: 0}]);
+  const [singles, setSingles] = useState<PlayerScore[]>([]);
   const router = useRouter();
 
   const onClick = () => {
@@ -31,16 +31,27 @@ const AddStatisticPage: NextPage = () => {
 
   useEffect(() => {
 		changeTitle('Ajustes - Añadir estadísticas');
-	}, []);
+	},[]);
 
   const handleSingleChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>, i: number) => { 
     const field = e.target.name; 
     const newSingles = [...singles]; 
-    let finalValue: String | Number = e.target.value;
-    if(field!="name"){
-      finalValue = Number(e.target.value);
+    switch (field) {
+      case "name":
+        newSingles[i].name = e.target.value;
+        break;
+      case "goals":
+        newSingles[i].goals = Number(e.target.value);
+        break;
+      case "assists":
+        newSingles[i].assists = Number(e.target.value);
+        break;
+      case "cards":
+        newSingles[i].cards = Number(e.target.value);
+        break;
+      default:
+        break;
     }
-    newSingles[i][field] = finalValue;
     setSingles(newSingles); 
   }; 
 

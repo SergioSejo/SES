@@ -4,13 +4,13 @@ import { StatisticsGrid } from '@/components/statistics';
 import { UIContext } from '@/context/ui';
 
 
-export const statisticsPage = () => {
+export const StatisticsPage = () => {
 
   const { changeTitle  } = useContext( UIContext );
   
   useEffect(() => {
 		changeTitle('Estadísticas');
-	}, []);
+	},[]);
 
   return (
     <>
@@ -21,4 +21,4 @@ export const statisticsPage = () => {
   );
 };
 
-export default statisticsPage;
+export default StatisticsPage;

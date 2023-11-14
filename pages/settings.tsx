@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea, CardMedia } from '@mui/material';
 import { UIContext } from '@/context/ui';
 
-export const settingsPage:FC = () => {
+export const SettingsPage:FC = () => {
 
   const { changeTitle  } = useContext( UIContext );
   const router = useRouter();
@@ -26,7 +26,7 @@ export const settingsPage:FC = () => {
 
   useEffect(() => {
 		changeTitle('Ajustes');
-	}, []);
+	},[]);
 
   return (
     <>
@@ -74,4 +74,4 @@ export const settingsPage:FC = () => {
   );
 };
 
-export default settingsPage;
+export default SettingsPage;

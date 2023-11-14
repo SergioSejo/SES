@@ -3,19 +3,19 @@ import type { GetStaticProps } from 'next';
 import { MatchGrid } from '@/components/matches';
 import { Layout } from '@/components/layouts';
 import { Match } from '@/interfaces';
-import { matches_mock } from '@/utils';
 import { UIContext } from '@/context/ui';
+import { matchesApi } from '@/apis';
 
 interface Props {
   matches: Match[];
 }
 
-export const matchesPage:FC<Props> = ({matches}) => {
+export const MatchesPage:FC<Props> = ({matches}) => {
 
-  const { changeTitle  } = useContext( UIContext );
+  const { changeTitle } = useContext( UIContext );
   useEffect(() => {
 		changeTitle('Partidos');
-	}, []);
+	},[]);
 
   return (
     <>
@@ -27,11 +27,13 @@ export const matchesPage:FC<Props> = ({matches}) => {
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
+  //const { data } = await matchesApi.get<Match[]>('');
+  const data:Match[] = []; 
   return {
     props: {
-      matches: matches_mock
+      matches: data
     }
   }
 }
 
-export default matchesPage;
+export default MatchesPage;

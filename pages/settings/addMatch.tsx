@@ -38,7 +38,7 @@ const AddMatchPage: NextPage = () => {
 
   useEffect(() => {
 		changeTitle('Ajustes - Añadir partido');
-	}, []);
+	},[]);
 
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     let compare = e.target.name;
@@ -68,7 +68,8 @@ const AddMatchPage: NextPage = () => {
   }
 
   const save = () => {
-    buildCollection();
+    const final = buildCollection();
+    console.log(final);
   }
 
   const buildCollection = () => {
@@ -88,6 +89,7 @@ const AddMatchPage: NextPage = () => {
       "cards": cardsScore,
       "cardsComments": cardComments
     }
+    return final;
   }
 
   return (

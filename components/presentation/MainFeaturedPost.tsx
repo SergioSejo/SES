@@ -7,8 +7,8 @@ const mainFeaturedPost = {
   title: 'Bienvenido a SES',
   description:
     "Aquí podrás ver todos los datos relevantes acerca del equipo más laureado y reconocido de la liga de fútbol 7 de Moratalaz durante los años 2016-2020.",
-  image: '/static/img/firstTeam.JPG',
-  logo: '/static/img/logo.jpg',
+  image: '/static/img/general/firstTeam.JPG',
+  logo: '/static/img/general/logo.jpg',
   imageText: 'Equipo',
   linkText: '¡Descúbrelo!',
 };

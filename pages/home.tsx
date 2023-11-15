@@ -18,7 +18,7 @@ const HomePage: NextPage= () => {
           <CardMedia
             component="img"
             height="350"
-            src="/static/img/logo.jpg"
+            src="/static/img/general/logo.jpg"
             alt="Partidos"
           />
         </Card>

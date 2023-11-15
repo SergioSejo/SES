@@ -37,7 +37,7 @@ export const SettingsPage:FC = () => {
               <CardMedia
                 component="img"
                 height="400"
-                src="/static/img/matches.jpg"
+                src="/static/img/general/matches.jpg"
                 alt="Partidos"
               />
               <CardContent>
@@ -55,7 +55,7 @@ export const SettingsPage:FC = () => {
               <CardMedia
                 component="img"
                 height="400"
-                src="/static/img/statistics.jpg"
+                src="/static/img/general/statistics.jpg"
                 alt="Estadísticas"
               />
               <CardContent>

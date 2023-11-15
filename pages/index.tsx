@@ -6,13 +6,13 @@ const featuredPosts = [
   {
     title: 'partidos',
     description: 'Como quedamos contra aquel equipo, quién metió gol en el último partido...¡todos los detalles!',
-    image: '/static/img/matches.jpg',
+    image: '/static/img/general/matches.jpg',
     imageLabel: 'Partidos',
   },
   {
     title: 'estadísticas',
     description: 'El pichichi de cada temporada, el más asistente, el más SUCIO...¡todos los datos!',
-    image: '/static/img/statistics.jpg',
+    image: '/static/img/general/statistics.jpg',
     imageLabel: 'Estadísticas',
   },
 ];

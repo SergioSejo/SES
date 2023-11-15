@@ -10,7 +10,7 @@
 }
 
 body {
-    background-image: url('/static/img/fondo.jpg');
+    background-image: url('/static/img/general/fondo.jpg');
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;

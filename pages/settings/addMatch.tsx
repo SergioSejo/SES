@@ -116,7 +116,7 @@ const AddMatchPage: NextPage = () => {
             </Box>            
           </Box>
           <Box sx={{marginTop:'10px', textAlign:'center'}}>
-            <Button onClick={ save } variant="contained" color='primary' startIcon={<SaveIcon />}>Guardar</Button>
+            <Button onClick={ save } variant="contained" color='secondary' startIcon={<SaveIcon />}>Guardar</Button>
           </Box>
         </Box>
     </Layout>

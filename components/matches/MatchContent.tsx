@@ -10,7 +10,10 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import TextField from '@mui/material/TextField';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import PhotoIcon from '@mui/icons-material/Photo';
 import { Match, PlayerList } from '@/interfaces';
+import Modal from '@mui/material/Modal';
+import { MatchImages } from './MatchImages';
 
 interface Props {
   match: Match;
@@ -42,8 +45,22 @@ function CustomTabPanel(props: TabPanelProps) {
   );
 }
 
+const style = {
+  position: 'absolute' as 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
 export const MatchContent:FC<Props> = ({match}) => {
 
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const [value, setValue] = useState(0);
   const router = useRouter();
 
@@ -105,6 +122,19 @@ export const MatchContent:FC<Props> = ({match}) => {
           <TextField fullWidth multiline disabled value={match.cardsComments} />
         </CustomTabPanel>
       </CardContent>
+      <Box sx={{textAlign:'center'}}>
+        <Button onClick={ handleOpen } variant="contained" color='secondary' startIcon={<PhotoIcon />}>Ver fotos</Button>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <MatchImages></MatchImages>
+          </Box>
+        </Modal>
+      </Box>
     </Card>
   )
 }

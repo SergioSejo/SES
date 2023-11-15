@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, FC } from 'react';
+import { useState, FC, useContext } from 'react';
 import { useRouter } from 'next/router';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -14,6 +14,7 @@ import PhotoIcon from '@mui/icons-material/Photo';
 import { Match, PlayerList } from '@/interfaces';
 import Modal from '@mui/material/Modal';
 import { MatchImages } from './MatchImages';
+import { SeasonContext } from '../../context/season';
 
 interface Props {
   match: Match;
@@ -63,6 +64,7 @@ export const MatchContent:FC<Props> = ({match}) => {
   const handleClose = () => setOpen(false);
   const [value, setValue] = useState(0);
   const router = useRouter();
+  const { seasonActive } = useContext( SeasonContext );
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -130,9 +132,11 @@ export const MatchContent:FC<Props> = ({match}) => {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Box sx={style}>
-            <MatchImages></MatchImages>
-          </Box>
+          {seasonActive == "1" 
+          ? <Box sx={style}>
+            <MatchImages number={match.number}></MatchImages>
+          </Box> 
+          : <></> }
         </Modal>
       </Box>
     </Card>

@@ -21,15 +21,6 @@ export const StatisticProvider:FC<PropsWithChildren> = ({ children }) => {
         dispatch({ type: 'Statistic - Add', payload: data });
     }
 
-    const refreshStatistics = async() => {
-        const { data } = await statisticsApi.get<Statistic[]>('');
-        dispatch({ type: 'Statistics Refresh', payload: data });
-    }
-
-    useEffect(() => {
-        refreshStatistics();
-    }, []);
-
     return (
         <StatisticContext.Provider value={{
             ...state,

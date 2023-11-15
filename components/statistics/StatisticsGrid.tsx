@@ -5,14 +5,15 @@ import { StatisticsSingle } from '@/components/statistics';
 import { StatisticsTotal } from '@/components/statistics';
 
 import { SeasonContext } from '../../context/season';
-import { StatisticContext } from '@/context/statistic';
+import { Statistic } from '@/interfaces';
 
+interface Props {
+  statistics: Statistic[];
+}
 
-
-export const StatisticsGrid:FC = () => {
+export const StatisticsGrid:FC<Props> = ({statistics}) => {
 
   const { seasonActive } = useContext( SeasonContext );
-  const { statistics } = useContext( StatisticContext );
 
   return (
     <>

@@ -1,6 +1,7 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse } from 'next';
 import { db } from '../../../database';
 import { Match, IMatch } from '../../../models';
+import { getAllMatches } from '@/utils/getAllMatches';
 
 type Data = 
     | { message: string }
@@ -24,9 +25,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
 
 const getMatches = async( res: NextApiResponse<Data> ) => {
 
-    await db.connect();
-    const matches = await Match.find().sort({ code: 'ascending' });
-    await db.disconnect();
+    const matches = await getAllMatches();
 
     return res.status(200).json( matches );
 }

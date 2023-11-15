@@ -4,8 +4,7 @@ import { MatchGrid } from '@/components/matches';
 import { Layout } from '@/components/layouts';
 import { Match } from '@/interfaces';
 import { UIContext } from '@/context/ui';
-import { matchesApi } from '@/apis';
-import { matches_mock } from '@/utils';
+import { getAllMatches } from '@/utils/getAllMatches';
 
 interface Props {
   matches: Match[];
@@ -28,11 +27,11 @@ export const MatchesPage:FC<Props> = ({matches}) => {
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  //const { data } = await matchesApi.get<Match[]>('');
-  //const data:Match[] = []; 
+
+  const data:Match[] = await getAllMatches();
   return {
     props: {
-      matches: matches_mock
+      matches: data
     }
   }
 }

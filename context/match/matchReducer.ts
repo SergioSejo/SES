@@ -16,5 +16,4 @@ export const matchReducer = ( state: MatchState, action: MatchActionType ): Matc
        default:
           return state;
    }
-
 }

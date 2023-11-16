@@ -1,7 +1,6 @@
 import { db } from '@/database';
 import { Statistic } from '@/models';
 
-
 export const getAllStatistics = async() => {
     await db.connect();
     const statistics = await Statistic.find().sort({ season: 'ascending' });

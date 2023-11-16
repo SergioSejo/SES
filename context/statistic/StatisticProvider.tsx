@@ -1,8 +1,7 @@
-import { FC, useReducer, PropsWithChildren, useEffect } from 'react';
+import { FC, useReducer, PropsWithChildren } from 'react';
 import { StatisticContext, statisticReducer } from '.';
 import { Statistic, StatisticWithourId } from '@/interfaces';
 import { statisticsApi } from '@/apis';
-import { json } from 'stream/consumers';
 
 export interface StatisticState {
     statistics: Statistic[];

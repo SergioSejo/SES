@@ -2,9 +2,7 @@ import React from 'react';
 import { infoExtra } from '@/public/static/data/infoExtra';
 import { InfoExtra } from './InfoExtra';
 
-
 export const InfoGrid = () => {
-
   return (
     <div>
       {

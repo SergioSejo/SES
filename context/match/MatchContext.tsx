@@ -8,5 +8,4 @@ interface ContextProps {
     addMatch: (match: MatchWithoutId) => void;
 }
 
-
 export const MatchContext = createContext({} as ContextProps );

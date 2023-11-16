@@ -8,5 +8,4 @@ interface ContextProps {
     addStatistic: (statistic: StatisticWithourId) => void;
 }
 
-
 export const StatisticContext = createContext({} as ContextProps );

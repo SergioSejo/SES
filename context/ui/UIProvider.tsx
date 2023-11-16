@@ -6,7 +6,6 @@ export interface UIState {
     titlePage: string;
 }
 
-
 const UI_INITIAL_STATE: UIState = {
     sidemenuOpen: false,
     titlePage: 'Inicio'

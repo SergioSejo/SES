@@ -4,7 +4,6 @@ import { StatisticState } from '.';
 type StatisticActionType = 
     | { type: 'Statistic - Add', payload: Statistic } 
 
-
 export const statisticReducer = ( state: StatisticState, action: StatisticActionType ): StatisticState => {
 
    switch (action.type) {
@@ -16,5 +15,4 @@ export const statisticReducer = ( state: StatisticState, action: StatisticAction
        default:
           return state;
    }
-
 }

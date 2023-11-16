@@ -29,7 +29,6 @@ const getMatches = async( res: NextApiResponse<Data> ) => {
     return res.status(200).json( matches );
 }
 
-
 const postMatch = async( req: NextApiRequest, res: NextApiResponse<Data> ) => {
 
     const newMatch = new Match({...req.body});
@@ -47,5 +46,4 @@ const postMatch = async( req: NextApiRequest, res: NextApiResponse<Data> ) => {
         console.log(error);
         return res.status(500).json({ message: 'Something went wrong, check server console' });
     }
-
 }

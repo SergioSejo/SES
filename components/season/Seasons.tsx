@@ -2,7 +2,6 @@ import React, { FC, useContext } from 'react';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { Box, Typography } from '@mui/material';
-
 import { SeasonContext } from '../../context/season';
 import {  seasons_mock } from '@/utils'
 

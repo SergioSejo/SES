@@ -1,6 +1,5 @@
 import { createContext } from 'react';
 
-
 interface ContextProps {
     sidemenuOpen: boolean;
     titlePage: string;
@@ -10,6 +9,5 @@ interface ContextProps {
     openSideMenu: () => void;
     changeTitle: (title: string) => void;
 }
-
 
 export const UIContext = createContext({} as ContextProps );

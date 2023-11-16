@@ -2,7 +2,6 @@ import { db } from '@/database';
 import { Match } from '@/models';
 import { matches_mock} from '@/utils';
 
-
 export const getAllMatches = async() => {
     await db.connect();
     let matches = await Match.find().sort({ code: 'ascending' });

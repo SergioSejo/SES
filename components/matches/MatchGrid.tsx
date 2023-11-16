@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import { MatchCard } from './';
 import { Seasons } from '../season';
 import { Match } from '@/interfaces';
-
 import { SeasonContext } from '../../context/season';
 
 interface Props {

@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import { Seasons } from '../season';
 import { StatisticsSingle } from '@/components/statistics';
 import { StatisticsTotal } from '@/components/statistics';
-
 import { SeasonContext } from '../../context/season';
 import { Statistic } from '@/interfaces';
 

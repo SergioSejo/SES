@@ -1,5 +1,4 @@
-import { useState, FC } from 'react';
-
+import { FC } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -13,7 +12,6 @@ interface Props {
   setScore: Function;
   setComments: Function;
 }
-
 
 export const AddScore:FC<Props> = ({ title, score, setScore, setComments }) => {
   

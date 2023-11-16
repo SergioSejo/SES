@@ -21,7 +21,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
     }
 }
 
-
 const getStatistics = async( res: NextApiResponse<Data> ) => {
 
     await db.connect();
@@ -30,7 +29,6 @@ const getStatistics = async( res: NextApiResponse<Data> ) => {
 
     return res.status(200).json( statistics );
 }
-
 
 const postStatistic = async( req: NextApiRequest, res: NextApiResponse<Data> ) => {
 
@@ -49,5 +47,4 @@ const postStatistic = async( req: NextApiRequest, res: NextApiResponse<Data> ) =
         console.log(error);
         return res.status(500).json({ message: 'Something went wrong, check server console' });
     }
-
 }

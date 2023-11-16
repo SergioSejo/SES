@@ -1,11 +1,9 @@
 import { UIState } from './';
 
-
 type UIActionType = 
     | { type: 'UI - Open Sidebar' } 
     | { type: 'UI - Close Sidebar' }
     | { type: 'UI - Change title', payload: string }
-
 
 export const uiReducer = ( state: UIState, action: UIActionType ): UIState => {
 
@@ -30,5 +28,4 @@ export const uiReducer = ( state: UIState, action: UIActionType ): UIState => {
        default:
           return state;
    }
-
 }

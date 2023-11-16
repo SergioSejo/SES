@@ -1,9 +1,7 @@
 import { SeasonState } from '.';
 
-
 type SeasonActionType = 
     | { type: 'Season - Change', payload: string } 
-
 
 export const seasonReducer = ( state: SeasonState, action: SeasonActionType ): SeasonState => {
 
@@ -16,5 +14,4 @@ export const seasonReducer = ( state: SeasonState, action: SeasonActionType ): S
        default:
           return state;
    }
-
 }

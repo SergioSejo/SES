@@ -1,10 +1,9 @@
 import React from 'react';
-import { NextPage, GetStaticPaths, GetServerSideProps } from 'next';
+import { NextPage, GetServerSideProps } from 'next';
 import Box from '@mui/material/Box';
 import { Layout } from '@/components/layouts';
 import { MatchContent } from '@/components/matches';
 import { Match } from '@/interfaces';
-import { codes_mock } from '@/utils';
 import { dbMatches } from '../../database';
 
 interface Props {
@@ -20,17 +19,6 @@ const MatchPage: NextPage<Props> = ({ match }) => {
     </Layout>
   )
 }
-
-/*export const getStaticPaths: GetStaticPaths = async (ctx) => {
-
-  const codes = codes_mock.map( code => ({
-    params: { code }
-  }));
-  return {
-    paths: codes,
-    fallback: 'blocking'
-  }
-}*/
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     

@@ -4,7 +4,7 @@ import { matches_mock} from '@/utils';
 
 export const getAllMatches = async() => {
     await db.connect();
-    let matches = await Match.find().sort({ code: 'ascending' });
+    let matches = await Match.find().sort({ _id: 'ascending' });
     await db.disconnect();
     const matches_final = JSON.parse(JSON.stringify(matches));
     return matches_final;

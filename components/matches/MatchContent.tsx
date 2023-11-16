@@ -122,7 +122,7 @@ export const MatchContent:FC<Props> = ({match}) => {
           <TextField fullWidth multiline disabled value={match.cardsComments} />
         </CustomTabPanel>
       </CardContent>
-      {/*match.season == "1" && (match.number =='1' || match.number =='2' || match.number =='3' || match.number =='5')
+      {match.season == "1" && (match.number =='1' || match.number =='2' || match.number =='3' || match.number =='5')
         ?
         <Box sx={{textAlign:'center'}}>
           <Button onClick={ handleOpen } variant="contained" color='secondary' startIcon={<PhotoIcon />}>Ver fotos</Button>
@@ -139,7 +139,7 @@ export const MatchContent:FC<Props> = ({match}) => {
           </Modal>
         </Box>
         : <></> 
-      */}
+      }
     </Card>
   )
 }

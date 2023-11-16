@@ -5,7 +5,6 @@ import { Layout } from '@/components/layouts';
 import { Match } from '@/interfaces';
 import { UIContext } from '@/context/ui';
 import { getAllMatches } from '@/utils/matchesFunctions';
-import { matches_mock } from '@/utils';
 
 interface Props {
   matches: Match[];
@@ -29,10 +28,10 @@ const MatchesPage:FC<Props> = ({matches}) => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
 
-  //const data:Match[] = await getAllMatches();
+  const data:Match[] = await getAllMatches();
   return {
     props: {
-      matches: matches_mock
+      matches: data
     }
   }
 }

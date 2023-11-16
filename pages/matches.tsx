@@ -6,6 +6,7 @@ import { Match } from '@/interfaces';
 import { UIContext } from '@/context/ui';
 import { getAllMatches } from '@/utils/matchesFunctions';
 import { matchesApi } from '@/apis';
+import { matches_mock } from '@/utils';
 
 interface Props {
   matches: Match[];
@@ -31,10 +32,10 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   //const { data } = await matchesApi.get<Match[]>('');
 
-  const data:Match[] = await getAllMatches();
+  //const data:Match[] = await getAllMatches();
   return {
     props: {
-      matches: data
+      matches: matches_mock
     }
   }
 }

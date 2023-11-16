@@ -6,6 +6,7 @@ import { mainTheme } from '../themes';
 import { UIProvider } from '../context/ui';
 import { SeasonProvider } from '../context/season';
 import { StatisticProvider } from '../context/statistic';
+import { MatchProvider } from '../context/match';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -13,9 +14,11 @@ export default function App({ Component, pageProps }: AppProps) {
       <ThemeProvider theme={mainTheme}>
         <CssBaseline></CssBaseline>
         <SeasonProvider>
-          <StatisticProvider>
-            <Component {...pageProps} />
-          </StatisticProvider>
+          <MatchProvider>
+            <StatisticProvider>
+              <Component {...pageProps} />
+            </StatisticProvider>
+          </MatchProvider>
         </SeasonProvider>
       </ThemeProvider>
     </UIProvider>

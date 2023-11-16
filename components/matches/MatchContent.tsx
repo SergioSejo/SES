@@ -109,7 +109,7 @@ export const MatchContent:FC<Props> = ({match}) => {
           <Typography align='center' gutterBottom variant="h6" component="div">
           {scores(match.goalScorers)}
           </Typography>
-          <TextField fullWidth multiline disabled value={match.goalsComments} />
+          <TextField sx={{alignContent:'center'}} fullWidth multiline disabled value={match.goalsComments} />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
           <Typography align='center' gutterBottom variant="h6" component="div">
@@ -132,7 +132,7 @@ export const MatchContent:FC<Props> = ({match}) => {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          {seasonActive == "1" 
+          {seasonActive == "1" && (match.number =='1' || match.number =='2' || match.number =='3' || match.number =='5')
           ? <Box sx={style}>
             <MatchImages number={match.number}></MatchImages>
           </Box> 

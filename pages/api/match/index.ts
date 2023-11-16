@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { db } from '../../../database';
 import { Match, IMatch } from '../../../models';
-import { getAllMatches } from '@/utils/getAllMatches';
+import { getAllMatches } from '@/utils/matchesFunctions';
 
 type Data = 
     | { message: string }
@@ -21,7 +21,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
             return res.status(400).json({ message: 'Endpoint does not exist' });
     }
 }
-
 
 const getMatches = async( res: NextApiResponse<Data> ) => {
 

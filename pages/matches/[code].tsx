@@ -1,10 +1,11 @@
 import React from 'react';
-import { GetStaticProps, NextPage, GetStaticPaths } from 'next';
+import { NextPage, GetStaticPaths, GetServerSideProps } from 'next';
 import Box from '@mui/material/Box';
 import { Layout } from '@/components/layouts';
 import { MatchContent } from '@/components/matches';
 import { Match } from '@/interfaces';
-import { getMatchInfo, codes_mock } from '../../utils';
+import { codes_mock } from '@/utils';
+import { dbMatches } from '../../database';
 
 interface Props {
   match: Match;
@@ -20,7 +21,7 @@ const MatchPage: NextPage<Props> = ({ match }) => {
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async (ctx) => {
+/*export const getStaticPaths: GetStaticPaths = async (ctx) => {
 
   const codes = codes_mock.map( code => ({
     params: { code }
@@ -29,28 +30,26 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
     paths: codes,
     fallback: 'blocking'
   }
-}
+}*/
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+    
   const { code } = params as { code: string };
-
-  const match = await getMatchInfo(code);
+  
+  const match = await dbMatches.getMatchByCode( code );
 
   if ( !match ) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false
+      return {
+          redirect: {
+              destination: '/',
+              permanent: false,
+          }
       }
-    }
   }
-
   return {
-    props: {
-      match
-    },
-    revalidate: 86400, // 60 * 60 * 24,
+      props: {
+        match
+      }
   }
 }
 

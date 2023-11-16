@@ -3,7 +3,7 @@ import { Layout } from '@/components/layouts';
 import { StatisticsGrid } from '@/components/statistics';
 import { UIContext } from '@/context/ui';
 import { GetStaticProps } from 'next';
-import { getAllStatistics } from '@/utils/getAllStatistics';
+import { getAllStatistics } from '@/utils/statisticsFunctions';
 import { Statistic } from '@/interfaces';
 
 interface Props {

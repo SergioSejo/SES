@@ -13,12 +13,14 @@ import { AddScore } from '@/components/settings';
 import { SeasonContext } from '@/context/season';
 import { UIContext } from '@/context/ui';
 import { PlayerList } from '@/interfaces';
+import { MatchContext } from '@/context/match';
 
 const AddMatchPage: NextPage = () => {
 
   const { changeTitle  } = useContext( UIContext );
   const router = useRouter();
   const { seasonActive } = useContext( SeasonContext );
+  const { addMatch } = useContext( MatchContext );
   const [num, setNum] = useState(1);
   const [local, setLocal] = useState('');
   const [goalsLocal, setGoalsLocal] = useState(0);
@@ -70,7 +72,7 @@ const AddMatchPage: NextPage = () => {
 
   const save = () => {
     const final = buildCollection();
-    console.log(final);
+    addMatch(final);
   }
 
   const buildCollection = () => {

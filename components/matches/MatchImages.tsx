@@ -9,7 +9,7 @@ interface Props{
 
 export const MatchImages:FC<Props> = ({number}) => {
 
-    const limit:number = number == '1' ? 17 : number == '2' ? 21 : number == '3' ? 4 : number == '5' ? 5 : 0
+    const limit:number = number == '1' ? 17 : number == '2' ? 21 : number == '3' ? 2 : number == '5' ? 4 : 0
     const arrayLimit: Number[] = Array.from({length: limit}, (_, i) => i + 1)
 
     return (

@@ -4,7 +4,7 @@ import { MatchGrid } from '@/components/matches';
 import { Layout } from '@/components/layouts';
 import { Match } from '@/interfaces';
 import { UIContext } from '@/context/ui';
-import { getAllMatches } from '@/utils/getAllMatches';
+import { getAllMatches } from '@/utils/matchesFunctions';
 
 interface Props {
   matches: Match[];

@@ -12,23 +12,22 @@ const matchSchema = new Schema({
     goalsLocal: { type: Number, required: true },
     goalsVisitor: { type: Number, required: true },
     date: { type: String, required: true },
-    goalScorers: {
+    goalScorers: [{
         name: { type: String },
         score: { type: Number }
-    },
+    }],
     goalsComments: { type: String, required: true },
-    assistants: {
+    assistants: [{
         name: { type: String },
         score: { type: Number }
-    },
+    }],
     assistantsComments: { type: String, required: true },
-    cards: {
+    cards: [{
         name: { type: String },
         score: { type: Number }
-    },
+    }],
     cardsComments: { type: String, required: true }
 });
-
 
 const MatchModel: Model<IMatch> = mongoose.models.Match || mongoose.model('Match', matchSchema );
 

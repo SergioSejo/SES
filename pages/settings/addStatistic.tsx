@@ -131,7 +131,7 @@ const AddStatisticPage: NextPage = () => {
           </Box>
           <Box sx={{marginTop:'10px', textAlign:'center'}}>
             <Button sx={{marginRight:'10px'}} onClick={ handleAddSingle } variant="contained" color='primary' startIcon={<AddCircleIcon />}>Añadir jugador</Button>
-            <Button onClick={ save } variant="contained" color='secondary' startIcon={<SaveIcon />}>Guardar</Button>
+            <Button onClick={ save } disabled variant="contained" color='secondary' startIcon={<SaveIcon />}>Guardar</Button>
           </Box>
         </Box>
     </Layout>

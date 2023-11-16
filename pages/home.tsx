@@ -3,7 +3,6 @@ import type { NextPage } from 'next';
 import { Layout } from '../components/layouts';
 import { UIContext } from '@/context/ui';
 import { Box, Card, CardMedia, Typography } from '@mui/material';
-import { Swipeable } from '@/components/home';
 import { InfoGrid } from '@/components/home/InfoGrid';
 
 const HomePage: NextPage= () => {
@@ -21,10 +20,6 @@ const HomePage: NextPage= () => {
             src="/static/img/general/logo.jpg"
             alt="Partidos"
           />
-        </Card>
-        <Card sx={{ display: 'inline-block', margin: '10px' }}>
-          {//<Swipeable></Swipeable>
-          }
         </Card>
         <Box sx={{width:'80%', margin: '0px auto', backgroundColor:'#121212'}}>
           <Typography gutterBottom variant="h5">

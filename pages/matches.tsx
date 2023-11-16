@@ -10,7 +10,7 @@ interface Props {
   matches: Match[];
 }
 
-export const MatchesPage:FC<Props> = ({matches}) => {
+const MatchesPage:FC<Props> = ({matches}) => {
 
   const { changeTitle } = useContext( UIContext );
   useEffect(() => {

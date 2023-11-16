@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea, CardMedia } from '@mui/material';
 import { UIContext } from '@/context/ui';
 
-export const SettingsPage:FC = () => {
+const SettingsPage:FC = () => {
 
   const { changeTitle  } = useContext( UIContext );
   const router = useRouter();

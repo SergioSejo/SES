@@ -10,7 +10,7 @@ interface Props {
   statistics: Statistic[];
 }
 
-export const StatisticsPage:FC<Props> = ({statistics}) => {
+const StatisticsPage:FC<Props> = ({statistics}) => {
 
   const { changeTitle  } = useContext( UIContext );
   

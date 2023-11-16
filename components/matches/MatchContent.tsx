@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, FC, useContext } from 'react';
+import { useState, FC } from 'react';
 import { useRouter } from 'next/router';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -14,7 +14,6 @@ import PhotoIcon from '@mui/icons-material/Photo';
 import { Match, PlayerList } from '@/interfaces';
 import Modal from '@mui/material/Modal';
 import { MatchImages } from './MatchImages';
-import { SeasonContext } from '../../context/season';
 
 interface Props {
   match: Match;
@@ -64,7 +63,6 @@ export const MatchContent:FC<Props> = ({match}) => {
   const handleClose = () => setOpen(false);
   const [value, setValue] = useState(0);
   const router = useRouter();
-  const { seasonActive } = useContext( SeasonContext );
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -124,7 +122,7 @@ export const MatchContent:FC<Props> = ({match}) => {
           <TextField fullWidth multiline disabled value={match.cardsComments} />
         </CustomTabPanel>
       </CardContent>
-      {match.season == "1" && (match.number =='1' || match.number =='2' || match.number =='3' || match.number =='5')
+      {/*match.season == "1" && (match.number =='1' || match.number =='2' || match.number =='3' || match.number =='5')
         ?
         <Box sx={{textAlign:'center'}}>
           <Button onClick={ handleOpen } variant="contained" color='secondary' startIcon={<PhotoIcon />}>Ver fotos</Button>
@@ -141,7 +139,7 @@ export const MatchContent:FC<Props> = ({match}) => {
           </Modal>
         </Box>
         : <></> 
-      }
+      */}
     </Card>
   )
 }

@@ -23,7 +23,8 @@ const HomePage: NextPage= () => {
           />
         </Card>
         <Card sx={{ display: 'inline-block', margin: '10px' }}>
-          <Swipeable></Swipeable>
+          {//<Swipeable></Swipeable>
+          }
         </Card>
         <Box sx={{width:'80%', margin: '0px auto', backgroundColor:'#121212'}}>
           <Typography gutterBottom variant="h5">

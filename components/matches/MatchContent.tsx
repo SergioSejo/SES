@@ -124,21 +124,24 @@ export const MatchContent:FC<Props> = ({match}) => {
           <TextField fullWidth multiline disabled value={match.cardsComments} />
         </CustomTabPanel>
       </CardContent>
-      <Box sx={{textAlign:'center'}}>
-        <Button onClick={ handleOpen } variant="contained" color='secondary' startIcon={<PhotoIcon />}>Ver fotos</Button>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          {seasonActive == "1" && (match.number =='1' || match.number =='2' || match.number =='3' || match.number =='5')
-          ? <Box sx={style}>
-            <MatchImages number={match.number}></MatchImages>
-          </Box> 
-          : <></> }
-        </Modal>
-      </Box>
+      {match.season == "1" && (match.number =='1' || match.number =='2' || match.number =='3' || match.number =='5')
+        ?
+        <Box sx={{textAlign:'center'}}>
+          <Button onClick={ handleOpen } variant="contained" color='secondary' startIcon={<PhotoIcon />}>Ver fotos</Button>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <MatchImages number={match.number}></MatchImages>
+            </Box> 
+            
+          </Modal>
+        </Box>
+        : <></> 
+      }
     </Card>
   )
 }

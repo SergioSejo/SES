@@ -3,7 +3,6 @@ import { Match } from '@/models';
 import { matches_mock} from '@/utils';
 
 export const getAllMatches = async() => {
-    console.log('JUSTO ANTES');
     await db.connect();
     let matches = await Match.find().sort({ _id: 'ascending' });
     await db.disconnect();

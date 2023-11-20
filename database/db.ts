@@ -28,7 +28,7 @@ export const connect = async() => {
         await mongoose.disconnect();
     }
     console.log('process.env: ', process.env);
-    await mongoose.connect( process.env.MONGO_URL || '');
+    await mongoose.connect( 'mongodb://' + process.env.VERCEL_URL + '/ses' || '');
     mongoConnection.isConnected = 1;
     console.log('Connected to MongoDB:', process.env.MONGO_URL );
 }

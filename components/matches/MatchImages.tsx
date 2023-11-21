@@ -17,8 +17,8 @@ export const MatchImages:FC<Props> = ({number}) => {
             {arrayLimit.map((item) => (
             <ImageListItem key={`${item}`}>
                 <img
-                srcSet={`/static/img/matches/${number}/${item}.JPG?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                src={`/static/img/matches/${number}/${item}.JPG?w=164&h=164&fit=crop&auto=format`}
+                srcSet={`/public/static/img/matches/${number}/${item}.JPG?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                src={`/public/static/img/matches/${number}/${item}.JPG?w=164&h=164&fit=crop&auto=format`}
                 loading="lazy"
                 />
             </ImageListItem>

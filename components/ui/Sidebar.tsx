@@ -41,7 +41,7 @@ export const Sidebar = () => {
                 destiny = '/';
                 break;        
             default:
-                destiny = '/';
+                destiny = '/home';
                 titleFinal = 'Inicio';
                 break;
         }

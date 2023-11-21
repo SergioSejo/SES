@@ -54,7 +54,7 @@ export const AddScore:FC<Props> = ({ title, score, setScore, setComments }) => {
           score.map((g, index) => (
             <Box key={index} sx={{position: 'relative', marginTop:'10px'}} className='rowAddPlayer'>
               <TextField className='playerInput' name='name' onChange={(e) => handleScoreChange(e, index)}  key={`player${index}`} id={`player${index}`} type='text' label="Jugador" variant="outlined" />
-              <TextField className='scoreInput' name='score' onChange={(e) => handleScoreChange(e, index)} key={`score${index}`} id={`score${index}`} type='number' label="Goles" variant="outlined" />
+              <TextField className='scoreInput' name='score' onChange={(e) => handleScoreChange(e, index)} key={`score${index}`} id={`score${index}`} type='number' label="Cantidad" variant="outlined" />
               <Button key={index} className='vertical-center deleteButton' onClick={() => handleDeleteScore(index)} variant="contained" color='primary' startIcon={<DeleteIcon />}></Button>
             </Box>
           ))

@@ -21,7 +21,7 @@ export const MatchCard:FC<Props> = ({match}) => {
         <CardActionArea sx={{ minHeight: 200}} onClick={onClick}>
             <CardContent>
                 <Typography gutterBottom variant="h6" component="div">
-                {match.local} VS {match.visitor}
+                {match.number} - {match.local} VS {match.visitor}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                 {match.date}

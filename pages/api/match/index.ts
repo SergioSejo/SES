@@ -23,8 +23,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
 }
 
 const getMatches = async( res: NextApiResponse<Data> ) => {
-
-    console.log('HOLAAAAAAAAAA')
     const matches = await getAllMatches();
 
     return res.status(200).json( matches );

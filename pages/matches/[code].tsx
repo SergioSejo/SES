@@ -5,7 +5,6 @@ import { Layout } from '@/components/layouts';
 import { MatchContent } from '@/components/matches';
 import { Match } from '@/interfaces';
 import { dbMatches } from '../../database';
-import { getMatchInfo } from '@/utils/matchesFunctions';
 
 interface Props {
   match: Match;
@@ -25,8 +24,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     
   const { code } = params as { code: string };
   
-  //const match = await dbMatches.getMatchByCode( code );
-  const match = getMatchInfo(code);
+  const match = await dbMatches.getMatchByCode( code );
 
   if ( !match ) {
       return {

@@ -5,7 +5,6 @@ import { UIContext } from '@/context/ui';
 import { GetStaticProps } from 'next';
 import { getAllStatistics } from '@/utils/statisticsFunctions';
 import { Statistic } from '@/interfaces';
-import { statistics_mock } from '@/utils';
 
 interface Props {
   statistics: Statistic[];
@@ -30,10 +29,10 @@ const StatisticsPage:FC<Props> = ({statistics}) => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
 
-  //const data:Statistic[] = await getAllStatistics();
+  const data:Statistic[] = await getAllStatistics();
   return {
     props: {
-      statistics: statistics_mock
+      statistics: data
     }
   }
 }

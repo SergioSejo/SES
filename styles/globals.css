@@ -27,8 +27,8 @@ body {
 }
 
 .vertical-center {
-    margin: 0;
-    position: absolute;
+    margin: 0 !important;
+    position: absolute !important;
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);

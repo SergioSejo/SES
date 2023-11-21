@@ -9,6 +9,6 @@ export const infoExtra = [
     },
     {
       title: 'Todo se acabó...',
-      content: 'Al llegar el Covid-19. El equipo había sufiro varios cambios de plantilla a lo largo de los años, y la pandemia terminó por hacer que el equipo se diluyera.',
+      content: 'Al llegar el Covid-19. El equipo había sufrido varios cambios de plantilla a lo largo de los años, y la pandemia terminó por hacer que el equipo se diluyera.',
     }    
   ];
